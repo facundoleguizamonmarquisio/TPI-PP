@@ -22,3 +22,4 @@ public class TipoDeUsuario {
         return "Tipo de usuario: " + nombre;
     }
 }
+//pipi
