@@ -2,8 +2,6 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        // Aca llame a los metodos estaticos que estan en la clase "Inicializadora"
-        // es para tener datos para probar y que se muestren cuando ustedes hagan la vista
         ArrayList<TipoDeUsuario> tiposUsuario = Inicializador.crearTiposDeUsuario();
         ArrayList<TipoDeCuenta> tiposCuenta = Inicializador.crearTiposDeCuenta();
         ArrayList<UsuarioUTN> usuarios = Inicializador.crearUsuariosUTN(tiposUsuario);
