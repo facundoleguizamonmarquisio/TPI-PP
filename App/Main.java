@@ -2,6 +2,8 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
+
+        //Ultimapruebaaaa
         ArrayList<TipoDeUsuario> tiposUsuario = Inicializador.crearTiposDeUsuario();
         ArrayList<TipoDeCuenta> tiposCuenta = Inicializador.crearTiposDeCuenta();
         ArrayList<UsuarioUTN> usuarios = Inicializador.crearUsuariosUTN(tiposUsuario);
