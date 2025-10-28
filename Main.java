@@ -25,12 +25,7 @@ public class Main {
         VentanaPrincipal vista = new VentanaPrincipal();
         ControladorRegistro controlador = new ControladorRegistro();
 
-        // Ejecución de la ventana
-        JFrame ventana = new JFrame("Ventana de prueba");
-        ventana.setSize(400, 300);
-        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ventana.setLocationRelativeTo(null); // Centra la ventana
-        ventana.setVisible(true);
+        vista.setVisible(true);
     }
 
 }
