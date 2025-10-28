@@ -1,3 +1,5 @@
+package modelos;
+
 public class TipoDeUsuario {
 
     private String nombre;
@@ -6,11 +8,11 @@ public class TipoDeUsuario {
     }
 
     public TipoDeUsuario(String nombre) {
-        this.nombre=nombre;
+        this.nombre = nombre;
     }
 
     public void tomarNombre(String nombre) {
-        this.nombre=nombre;
+        this.nombre = nombre;
     }
 
     public String mostrarNombre() {

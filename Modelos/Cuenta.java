@@ -1,3 +1,5 @@
+package modelos;
+
 import java.util.ArrayList;
 
 public class Cuenta {
@@ -8,27 +10,28 @@ public class Cuenta {
     private boolean estadoCuenta;
 
     public Cuenta() {
-        this.vehiculos=new ArrayList<>();
+        this.vehiculos = new ArrayList<>();
     }
 
-    public Cuenta(int numeroDeCuenta, TipoDeCuenta tipoDeCuenta, UsuarioUTN usuario, ArrayList<Vehiculo> vehiculos, boolean estadoCuenta) {
-        this.numeroDeCuenta=numeroDeCuenta;
-        this.tipoDeCuenta=tipoDeCuenta;
-        this.usuario=usuario;
-        this.vehiculos=vehiculos;
-        this.estadoCuenta=estadoCuenta;
+    public Cuenta(int numeroDeCuenta, TipoDeCuenta tipoDeCuenta, UsuarioUTN usuario, ArrayList<Vehiculo> vehiculos,
+            boolean estadoCuenta) {
+        this.numeroDeCuenta = numeroDeCuenta;
+        this.tipoDeCuenta = tipoDeCuenta;
+        this.usuario = usuario;
+        this.vehiculos = vehiculos;
+        this.estadoCuenta = estadoCuenta;
     }
 
     public void tomarNumeroDeCuenta(int numeroDeCuenta) {
-        this.numeroDeCuenta=numeroDeCuenta;
+        this.numeroDeCuenta = numeroDeCuenta;
     }
 
     public void tomarEstadoCuenta(boolean estadoCuenta) {
-        this.estadoCuenta=estadoCuenta;
+        this.estadoCuenta = estadoCuenta;
     }
 
     public void tomarUsuario(UsuarioUTN usuario) {
-        this.usuario=usuario;
+        this.usuario = usuario;
     }
 
     public void asociarVehiculo(Vehiculo vehiculo) {
@@ -55,10 +58,10 @@ public class Cuenta {
         return vehiculos;
     }
 
-    private StringBuilder mostrarPatentes(){
+    private StringBuilder mostrarPatentes() {
         StringBuilder patentes = new StringBuilder();
-        if(vehiculos != null && !vehiculos.isEmpty()) {
-            for(Vehiculo v : vehiculos) {
+        if (vehiculos != null && !vehiculos.isEmpty()) {
+            for (Vehiculo v : vehiculos) {
                 patentes.append(v.mostrarPatente()).append(" - ");
             }
         } else {
@@ -66,13 +69,14 @@ public class Cuenta {
         }
         return patentes;
     }
-    
+
     @Override
     public String toString() {
-        return "Número de cuenta: "+mostrarNumeroDeCuenta()+
-               "\nTipo de cuenta: "+(tipoDeCuenta!=null?tipoDeCuenta.mostrarNombre():"No posee tipo de cuenta")+
-               "\nUsuario: "+(usuario!=null?usuario.toString():"No posee usuario")+
-               "\nPatentes asignadas: "+(this.mostrarPatentes())+
-               "\nEstado de cuenta: "+mostrarEstadoCuenta();
+        return "Número de cuenta: " + mostrarNumeroDeCuenta() +
+                "\nTipo de cuenta: " + (tipoDeCuenta != null ? tipoDeCuenta.mostrarNombre() : "No posee tipo de cuenta")
+                +
+                "\nUsuario: " + (usuario != null ? usuario.toString() : "No posee usuario") +
+                "\nPatentes asignadas: " + (this.mostrarPatentes()) +
+                "\nEstado de cuenta: " + mostrarEstadoCuenta();
     }
 }

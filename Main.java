@@ -1,22 +1,23 @@
 import java.util.ArrayList;
+import modelos.*;
+import vistas.*;
+import controladores.*;
 
 public class Main {
     public static void main(String[] args) {
-
-        //Ultimapruebaaaa
         ArrayList<TipoDeUsuario> tiposUsuario = Inicializador.crearTiposDeUsuario();
         ArrayList<TipoDeCuenta> tiposCuenta = Inicializador.crearTiposDeCuenta();
         ArrayList<UsuarioUTN> usuarios = Inicializador.crearUsuariosUTN(tiposUsuario);
         ArrayList<Vehiculo> vehiculos = Inicializador.crearVehiculos();
-        ArrayList<Cuenta> cuentas = Inicializador.crearCuentas(tiposCuenta,usuarios,vehiculos);
+        ArrayList<Cuenta> cuentas = Inicializador.crearCuentas(tiposCuenta, usuarios, vehiculos);
 
-        // Esto que puse aca abajo es para mostrar los datos de prueba, una vez que hagamos la vista
-        // vamos a sacar esto
+        // Muestra de datos
         System.out.println("=== DATOS DE PRUEBA ===");
-        for(Cuenta c : cuentas) {
+        for (Cuenta c : cuentas) {
             System.out.println(c);
             System.out.println("----------------------");
         }
-    }
-}
 
+    }
+
+}

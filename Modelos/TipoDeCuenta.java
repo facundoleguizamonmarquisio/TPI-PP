@@ -1,3 +1,5 @@
+package modelos;
+
 public class TipoDeCuenta {
     protected String nombre;
     protected String descripcion;
@@ -5,17 +7,17 @@ public class TipoDeCuenta {
     public TipoDeCuenta() {
     }
 
-    public TipoDeCuenta(String nombre,String descripcion) {
-        this.nombre=nombre;
-        this.descripcion=descripcion;
+    public TipoDeCuenta(String nombre, String descripcion) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
     }
 
     public void tomarNombre(String nombre) {
-        this.nombre=nombre;
+        this.nombre = nombre;
     }
 
     public void tomarDescripcion(String descripcion) {
-        this.descripcion=descripcion;
+        this.descripcion = descripcion;
     }
 
     public String mostrarNombre() {
@@ -28,8 +30,7 @@ public class TipoDeCuenta {
 
     @Override
     public String toString() {
-        return "Nombre: "+nombre+
-               "\nDescripción: "+descripcion;
+        return "Nombre: " + nombre +
+                "\nDescripción: " + descripcion;
     }
 }
-
