@@ -14,30 +14,6 @@ public class UsuarioUTN extends Persona {
         this.legajo = legajo;
     }
 
-    public void tomarTipoDeUsuario(TipoDeUsuario tipoDeUsuario) {
-        this.tipoDeUsuario = tipoDeUsuario;
-    }
+    
 
-    public void tomarLegajo(int legajo) {
-        this.legajo = legajo;
-    }
-
-    public TipoDeUsuario mostrarTipoDeUsuario() {
-        return tipoDeUsuario;
-    }
-
-    public int mostrarLegajo() {
-        return legajo;
-    }
-
-    @Override
-    public String toString() {
-        return "Nombre: " + mostrarNombre() + "\nApellido: " + mostrarApellido() + "\nDocumento: " + mostrarDocumento()
-                + "\nDomicilio: " + mostrarDomicilio() + "\nLocalidad: " + mostrarLocalidad()
-                + "\nFecha de nacimiento: " + mostrarFechaNacimiento() +
-                "\nTeléfono: " + mostrarTelefono() +
-                "\nMail: " + mostrarMail() +
-                "\nTipo de usuario: " + (tipoDeUsuario != null ? tipoDeUsuario.mostrarNombre() : "null") +
-                "\nLegajo: " + legajo;
-    }
 }
