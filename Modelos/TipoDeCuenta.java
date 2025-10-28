@@ -1,5 +1,10 @@
 package modelos;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class TipoDeCuenta {
     protected String nombre;
     protected String descripcion;
@@ -12,25 +17,4 @@ public class TipoDeCuenta {
         this.descripcion = descripcion;
     }
 
-    public void tomarNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void tomarDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public String mostrarNombre() {
-        return nombre;
-    }
-
-    public String mostrarDescripcion() {
-        return descripcion;
-    }
-
-    @Override
-    public String toString() {
-        return "Nombre: " + nombre +
-                "\nDescripción: " + descripcion;
-    }
 }

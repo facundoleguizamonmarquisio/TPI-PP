@@ -1,5 +1,10 @@
 package modelos;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class UsuarioUTN extends Persona {
     private TipoDeUsuario tipoDeUsuario;
     private int legajo;
@@ -13,7 +18,5 @@ public class UsuarioUTN extends Persona {
         this.tipoDeUsuario = tipoDeUsuario;
         this.legajo = legajo;
     }
-
-    
 
 }
