@@ -14,4 +14,8 @@ public class TipoDeUsuario {
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
+
+    public TipoDeUsuario(String nombre) {
+        this.nombre = nombre;
+    }
 }

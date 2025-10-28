@@ -1,7 +1,9 @@
+import java.beans.Visibility;
 import java.util.ArrayList;
 import modelos.*;
 import vistas.*;
 import controladores.*;
+import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,7 +11,8 @@ public class Main {
         ArrayList<TipoDeCuenta> tiposCuenta = Inicializador.crearTiposDeCuenta();
         ArrayList<UsuarioUTN> usuarios = Inicializador.crearUsuariosUTN(tiposUsuario);
         ArrayList<Vehiculo> vehiculos = Inicializador.crearVehiculos();
-        ArrayList<Cuenta> cuentas = Inicializador.crearCuentas(tiposCuenta, usuarios, vehiculos);
+        ArrayList<Cuenta> cuentas = Inicializador.crearCuentas(tiposCuenta, usuarios,
+                vehiculos);
 
         // Muestra de datos
         System.out.println("=== DATOS DE PRUEBA ===");
@@ -18,6 +21,16 @@ public class Main {
             System.out.println("----------------------");
         }
 
+        // Vista y controlador
+        VentanaPrincipal vista = new VentanaPrincipal();
+        ControladorRegistro controlador = new ControladorRegistro();
+
+        // Ejecución de la ventana
+        JFrame ventana = new JFrame("Ventana de prueba");
+        ventana.setSize(400, 300);
+        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ventana.setLocationRelativeTo(null); // Centra la ventana
+        ventana.setVisible(true);
     }
 
 }
