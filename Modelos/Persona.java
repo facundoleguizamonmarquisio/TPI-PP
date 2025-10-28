@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 package modelos;
 
+=======
+import lombok.*;
+
+@Data
+>>>>>>> 9cea1a6ac9332c3c20b756d84aee424aca1a775c
 public abstract class Persona {
     protected String nombre;
     protected String apellido;
@@ -9,7 +15,7 @@ public abstract class Persona {
     protected String fechaNacimiento;
     protected String telefono;
     protected String mail;
-
+/* 
     public Persona() {
     }
 
@@ -88,7 +94,7 @@ public abstract class Persona {
     public String mostrarMail() {
         return mail;
     }
-
+*/
     @Override
     public String toString() {
         return "Nombre: " + nombre +
