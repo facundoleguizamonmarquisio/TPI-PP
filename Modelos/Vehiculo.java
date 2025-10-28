@@ -13,9 +13,6 @@ public class Vehiculo {
     protected String fechaRegistro;
     protected String horaRegistro;
 
-    public Vehiculo() {
-    }
-
     public Vehiculo(String marca, String modelo, String patente, String color, String fechaRegistro,
             String horaRegistro) {
         this.marca = marca;

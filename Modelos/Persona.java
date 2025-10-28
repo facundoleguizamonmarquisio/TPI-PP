@@ -15,9 +15,6 @@ public abstract class Persona {
   protected String telefono;
   protected String mail;
 
-  public Persona() {
-  }
-
   public Persona(String nombre, String apellido, String documento, String domicilio, String localidad,
       String fechaNacimiento, String telefono, String mail) {
     this.nombre = nombre;

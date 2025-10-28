@@ -8,11 +8,10 @@ import lombok.Setter;
 public class TipoDeUsuario {
 
     private String nombre;
+    private String descripcion;
 
-    public TipoDeUsuario() {
-    }
-
-    public TipoDeUsuario(String nombre) {
+    public TipoDeUsuario(String nombre, String descripcion) {
         this.nombre = nombre;
+        this.descripcion = descripcion;
     }
 }
