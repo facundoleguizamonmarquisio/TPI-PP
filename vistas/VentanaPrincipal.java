@@ -3,8 +3,7 @@ package vistas;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import modelos.Cuenta;
-import modelos.Vehiculo;
+import modelos.*;
 
 public class VentanaPrincipal extends JFrame {
     private JComboBox<Cuenta> comboCuentas;
@@ -17,10 +16,13 @@ public class VentanaPrincipal extends JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLayout(new FlowLayout());
 
+        // ComboBox
+        comboCuentas = new JComboBox<>();
+
         // Botones
         btnAsociar = new JButton("Asociar");
-        btnDesasociar = new JButton("Asociar");
-        btnImprimir = new JButton("Asociar");
+        btnDesasociar = new JButton("Desasociar");
+        btnImprimir = new JButton("Imprimir");
 
         // Acciones del botón
         btnAsociar.addActionListener(e -> {
@@ -31,13 +33,16 @@ public class VentanaPrincipal extends JFrame {
             System.out.println("Desasocie xd");
         });
 
-        btnDesasociar.addActionListener(e -> {
-            System.out.println("Imprimi xd");
-        });
+        // btnImprimir.addActionListener(e -> {
+        // System.out.println("Imprimi xd");
+        // });
 
         // Agregar componentes
+        add(comboCuentas);
+
         add(btnAsociar);
         add(btnDesasociar);
-        add(btnImprimir);
+        // add(btnImprimir);
+
     }
 }
