@@ -28,13 +28,13 @@ public class Inicializador {
 
     public static ArrayList<UsuarioUTN> crearUsuariosUTN(ArrayList<TipoDeUsuario> tiposUsuario) {
         ArrayList<UsuarioUTN> usuarios = new ArrayList<>();
-        usuarios.add(new UsuarioUTN("Juan", "Pérez", "Calle 1", "12345678", "Ciudad A", "01/01/1980", "1111111111",
+        usuarios.add(new UsuarioUTN("Juan", "Pérez", "12355455", "Calle 1", "Ciudad A", "01/01/1980", "1111111111",
                 "juan@mail.com", tiposUsuario.get(0), 11300));
-        usuarios.add(new UsuarioUTN("María", "González", "Calle 2", "87654321", "Ciudad B", "05/05/1990", "2222222222",
+        usuarios.add(new UsuarioUTN("María", "González", "87654321", "Calle 2", "Ciudad B", "05/05/1990", "2222222222",
                 "maria@mail.com", tiposUsuario.get(1), 13000));
-        usuarios.add(new UsuarioUTN("Carlos", "Ramírez", "Calle 3", "11223344", "Ciudad C", "10/10/1985", "3333333333",
+        usuarios.add(new UsuarioUTN("Carlos", "Ramírez", "11223344", "Calle 3", "Ciudad C", "10/10/1985", "3333333333",
                 "carlos@mail.com", tiposUsuario.get(2), 7000));
-        usuarios.add(new UsuarioUTN("Lucía", "Fernández", "Calle 4", "44332211", "Ciudad D", "15/12/1995", "4444444444",
+        usuarios.add(new UsuarioUTN("Lucía", "Fernández", "44332211", "Calle 4", "Ciudad D", "15/12/1995", "4444444444",
                 "lucia@mail.com", tiposUsuario.get(3), 14000));
         return usuarios;
     }
