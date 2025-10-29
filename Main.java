@@ -1,6 +1,6 @@
 import java.beans.Visibility;
 import java.util.ArrayList;
-import modelos.*;
+import Modelos.*;
 import vistas.*;
 import controladores.*;
 import javax.swing.*;

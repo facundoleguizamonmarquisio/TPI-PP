@@ -1,10 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" ...>
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.ejemplo</groupId>
-    <artifactId>TPI-PP</artifactId>
-    <version>1.0-SNAPSHOT</version>
-
-    <dependencies>
+<dependencies>
         <!-- Lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -15,26 +9,3 @@
 
         <!-- Swing ya viene con Java, no hace falta agregar -->
     </dependencies>
-
-    <build>
-        <plugins>
-            <!-- Plugin para compilar -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.10.1</version>
-                <configuration>
-                    <source>17</source>
-                    <target>17</target>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                            <version>1.18.30</version>
-                        </path>
-                    </annotationProcessorPaths>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-</project>
