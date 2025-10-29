@@ -41,7 +41,7 @@ public class Inicializador {
 
     public static ArrayList<Vehiculo> crearVehiculos() {
         ArrayList<Vehiculo> vehiculos = new ArrayList<>();
-        vehiculos.add(new Vehiculo("Toyota", "Corolla", "ABC123", "Rojo" ));
+        vehiculos.add(new Vehiculo("Toyota", "Corolla", "ABC123", "Rojo"));
         vehiculos.add(new Vehiculo("Honda", "Civic", "DEF456", "Azul"));
         vehiculos.add(new Vehiculo("Ford", "Focus", "GHI789", "Negro"));
         vehiculos.add(new Vehiculo("Chevrolet", "Cruze", "JKL012", "Blanco"));
@@ -54,17 +54,17 @@ public class Inicializador {
             ArrayList<Vehiculo> vehiculos) {
         ArrayList<Cuenta> cuentas = new ArrayList<>();
 
-        Cuenta cuenta1 = new Cuenta(1, tiposCuenta.get(0), usuarios.get(0), new ArrayList<>(), true);
+        Cuenta cuenta1 = new Cuenta(1, tiposCuenta.get(0), usuarios.get(0), true);
 
-        Cuenta cuenta2 = new Cuenta(2, tiposCuenta.get(1), usuarios.get(1), new ArrayList<>(), true);
+        Cuenta cuenta2 = new Cuenta(2, tiposCuenta.get(1), usuarios.get(1), true);
         cuenta2.asociarVehiculo(vehiculos.get(0));
 
-        Cuenta cuenta3 = new Cuenta(3, tiposCuenta.get(0), usuarios.get(2), new ArrayList<>(), false);
+        Cuenta cuenta3 = new Cuenta(3, tiposCuenta.get(0), usuarios.get(2), false);
         cuenta3.asociarVehiculo(vehiculos.get(1));
         cuenta3.asociarVehiculo(vehiculos.get(2));
         cuenta3.asociarVehiculo(vehiculos.get(3));
 
-        Cuenta cuenta4 = new Cuenta(4, tiposCuenta.get(1), usuarios.get(3), new ArrayList<>(), true);
+        Cuenta cuenta4 = new Cuenta(4, tiposCuenta.get(1), usuarios.get(3), true);
         cuenta4.asociarVehiculo(vehiculos.get(4));
 
         cuentas.add(cuenta1);
