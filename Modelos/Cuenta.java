@@ -68,4 +68,9 @@ public class Cuenta {
     public void desasociarVehiculo(Vehiculo vehiculo) {
         this.vehiculos.remove(vehiculo);
     }
+    @Override
+    public String toString() {
+        return "Cuenta #" + numeroDeCuenta + " - " + usuario.getNombre() + " " + usuario.getApellido();
+    }
+
 }

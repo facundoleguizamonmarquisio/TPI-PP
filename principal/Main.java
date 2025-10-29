@@ -15,18 +15,15 @@ public class Main {
         ArrayList<TipoDeCuenta> tiposCuenta = Inicializador.crearTiposDeCuenta();
         ArrayList<UsuarioUTN> usuarios = Inicializador.crearUsuariosUTN(tiposUsuario);
         ArrayList<Vehiculo> vehiculos = Inicializador.crearVehiculos();
-        ArrayList<Cuenta> cuentas = Inicializador.crearCuentas(tiposCuenta, usuarios,
-                vehiculos);
+        ArrayList<Cuenta> cuentas = Inicializador.crearCuentas(tiposCuenta, usuarios, vehiculos);
 
-        // Muestra de datos
         System.out.println("=== DATOS DE PRUEBA ===");
         for (Cuenta c : cuentas) {
             System.out.println(c);
             System.out.println("----------------------");
         }
 
-        // Vista y controlador
-        VentanaPrincipal vista = new VentanaPrincipal();
+        VentanaPrincipal vista = new VentanaPrincipal(cuentas);
         ControladorRegistro controlador = new ControladorRegistro();
 
         vista.setVisible(true);
