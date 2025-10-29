@@ -12,7 +12,7 @@ public class UsuarioUTN extends Persona {
     }
 
     // Setter
-    public void setTipoDeUusario(TipoDeUsuario tipoDeUsuario) {
+    public void setTipoDeUsario(TipoDeUsuario tipoDeUsuario) {
         this.tipoDeUsuario = tipoDeUsuario;
     }
 
@@ -21,7 +21,7 @@ public class UsuarioUTN extends Persona {
     }
 
     // Getter
-    public TipoDeUsuario getTipoDeUusario() {
+    public TipoDeUsuario getTipoDeUsario() {
         return this.tipoDeUsuario;
     }
 

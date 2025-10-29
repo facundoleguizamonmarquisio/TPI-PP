@@ -1,5 +1,10 @@
-package modelos;
+package Modelos;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class TipoDeUsuario {
 
     private String nombre;
@@ -12,23 +17,5 @@ public class TipoDeUsuario {
 
     public TipoDeUsuario(String nombre) {
         this.nombre = nombre;
-    }
-
-    // Setter
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    // Getter
-    public String getNombre() {
-        return this.nombre;
-    }
-
-    public String getDescripcion() {
-        return this.descripcion;
     }
 }
