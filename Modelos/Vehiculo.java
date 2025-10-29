@@ -57,4 +57,12 @@ public class Vehiculo {
     public String getColor() {
         return this.color;
     }
+
+    public String getFechaRegistro() {
+        return this.fechaRegistro;
+    }
+
+    public String getHoraRegistro() {
+        return this.horaRegistro;
+    }
 }
