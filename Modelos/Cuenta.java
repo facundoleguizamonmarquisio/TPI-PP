@@ -1,11 +1,7 @@
-package Modelos;
+package modelos;
 
 import java.util.ArrayList;
-import lombok.Getter;
-import lombok.Setter;
 
-@Setter
-@Getter
 public class Cuenta {
     private int numeroDeCuenta;
     private TipoDeCuenta tipoDeCuenta;
@@ -22,6 +18,49 @@ public class Cuenta {
         this.estadoCuenta = estadoCuenta;
     }
 
+    // Setter
+    public void setNumeroDeCuenta(int numeroDeCuenta) {
+        this.numeroDeCuenta = numeroDeCuenta;
+    }
+
+    public void setTipoDeCuenta(TipoDeCuenta tipoDeCuenta) {
+        this.tipoDeCuenta = tipoDeCuenta;
+    }
+
+    public void setUsuario(UsuarioUTN usuario) {
+        this.usuario = usuario;
+    }
+
+    public void setVehiculos(ArrayList<Vehiculo> vehiculos) {
+        this.vehiculos = vehiculos;
+    }
+
+    public void setEstadoCuenta(boolean estadoCuenta) {
+        this.estadoCuenta = estadoCuenta;
+    }
+
+    // Getter
+    public int getNumeroDeCuenta() {
+        return this.numeroDeCuenta;
+    }
+
+    public TipoDeCuenta getTipoDeCuenta() {
+        return this.tipoDeCuenta;
+    }
+
+    public UsuarioUTN getUsuario() {
+        this.usuario = usuario;
+    }
+
+    public ArrayList<Vehiculo> getVehiculos() {
+        return this.vehiculos;
+    }
+
+    public boolean getestadoCuenta() {
+        return this.estadoCuenta;
+    }
+
+    // Métodos
     public void asociarVehiculo(Vehiculo vehiculo) {
         this.vehiculos.add(vehiculo);
     }
@@ -29,17 +68,4 @@ public class Cuenta {
     public void desasociarVehiculo(Vehiculo vehiculo) {
         this.vehiculos.remove(vehiculo);
     }
-
-    // private StringBuilder mostrarPatentes() {
-    // StringBuilder patentes = new StringBuilder();
-    // if (vehiculos != null && !vehiculos.isEmpty()) {
-    // for (Vehiculo v : vehiculos) {
-    // patentes.append(v.mostrarPatente()).append(" - ");
-    // }
-    // } else {
-    // patentes.append("No tiene vehículos asignados");
-    // }
-    // return patentes;
-    // }
-
 }

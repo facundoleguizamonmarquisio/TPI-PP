@@ -1,8 +1,12 @@
+package principal;
+
 import java.beans.Visibility;
 import java.util.ArrayList;
-import Modelos.*;
-import vistas.*;
+
+import modelos.*;
 import controladores.*;
+import vistas.*;
+
 import javax.swing.*;
 
 public class Main {

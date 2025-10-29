@@ -1,5 +1,11 @@
+package principal;
+
 import java.util.ArrayList;
-import Modelos.*;
+
+import modelos.*;
+import vistas.*;
+import controladores.*;
+
 import java.util.ArrayList;
 
 public class Inicializador {
