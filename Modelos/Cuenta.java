@@ -9,7 +9,7 @@ public class Cuenta {
     private ArrayList<Vehiculo> vehiculos;
     private boolean estadoCuenta;
 
-    public Cuenta(int numeroDeCuenta, TipoDeCuenta tipoDeCuenta, UsuarioUTN usuario,
+    public Cuenta(int numeroDeCuenta, TipoDeCuenta tipoDeCuenta, UsuarioUTN usuario, ArrayList<Vehiculo> vehiculos,
             boolean estadoCuenta) {
         this.numeroDeCuenta = numeroDeCuenta;
         this.tipoDeCuenta = tipoDeCuenta;
