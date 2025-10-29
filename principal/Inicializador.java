@@ -41,12 +41,12 @@ public class Inicializador {
 
     public static ArrayList<Vehiculo> crearVehiculos() {
         ArrayList<Vehiculo> vehiculos = new ArrayList<>();
-        vehiculos.add(new Vehiculo("Toyota", "Corolla", "ABC123", "Rojo", "01/03/2020", "08:30"));
-        vehiculos.add(new Vehiculo("Honda", "Civic", "DEF456", "Azul", "15/07/2021", "10:15"));
-        vehiculos.add(new Vehiculo("Ford", "Focus", "GHI789", "Negro", "20/09/2022", "12:00"));
-        vehiculos.add(new Vehiculo("Chevrolet", "Cruze", "JKL012", "Blanco", "05/05/2023", "14:45"));
-        vehiculos.add(new Vehiculo("Volkswagen", "Golf", "MNO345", "Gris", "10/10/2020", "16:20"));
-        vehiculos.add(new Vehiculo("Renault", "Megane", "PQR678", "Verde", "22/08/2021", "09:50"));
+        vehiculos.add(new Vehiculo("Toyota", "Corolla", "ABC123", "Rojo" ));
+        vehiculos.add(new Vehiculo("Honda", "Civic", "DEF456", "Azul"));
+        vehiculos.add(new Vehiculo("Ford", "Focus", "GHI789", "Negro"));
+        vehiculos.add(new Vehiculo("Chevrolet", "Cruze", "JKL012", "Blanco"));
+        vehiculos.add(new Vehiculo("Volkswagen", "Golf", "MNO345", "Gris"));
+        vehiculos.add(new Vehiculo("Renault", "Megane", "PQR678", "Verde"));
         return vehiculos;
     }
 

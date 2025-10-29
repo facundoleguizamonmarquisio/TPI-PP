@@ -49,7 +49,7 @@ public class Cuenta {
     }
 
     public UsuarioUTN getUsuario() {
-        this.usuario = usuario;
+        return this.usuario;
     }
 
     public ArrayList<Vehiculo> getVehiculos() {
