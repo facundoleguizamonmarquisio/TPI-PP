@@ -18,4 +18,22 @@ public class TipoDeUsuario {
     public TipoDeUsuario(String nombre) {
         this.nombre = nombre;
     }
+
+    // Setter
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    // Getter
+    public String getNombre() {
+        return this.nombre;
+    }
+
+    public String getDescripcion() {
+        return this.descripcion;
+    }
 }

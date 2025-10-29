@@ -39,9 +39,49 @@ public abstract class Persona {
     this.domicilio = domicilio;
   }
 
+  public void setLocalidad(String localidad) {
+    this.localidad = localidad;
+  }
+
+  public void setFechaNacimiento(String fechaNacimiento) {
+    this.fechaNacimiento = fechaNacimiento;
+  }
+
+  public void setTelefono(String telefono) {
+    this.telefono = telefono;
+  }
+
+  public void setMail(String mail) {
+    this.mail = mail;
+  }
+
   // Getter
-  public int getNumeroDeCuenta() {
-    return this.numeroDeCuenta;
+  public String getNombre() {
+    return this.nombre;
+  }
+
+  public String getApellido() {
+    return this.apellido;
+  }
+
+  public String getDocumento() {
+    return this.documento;
+  }
+
+  public String getDomicilio() {
+    return this.domicilio;
+  }
+
+  public String getLocalidad() {
+    return this.localidad;
+  }
+
+  public String getFechaNacimiento() {
+    return this.fechaNacimiento;
+  }
+
+  public String getTelefono() {
+    return this.telefono;
   }
 
   // Métodos
