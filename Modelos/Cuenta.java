@@ -9,12 +9,12 @@ public class Cuenta {
     private ArrayList<Vehiculo> vehiculos;
     private boolean estadoCuenta;
 
-    public Cuenta(int numeroDeCuenta, TipoDeCuenta tipoDeCuenta, UsuarioUTN usuario, ArrayList<Vehiculo> vehiculos,
+    public Cuenta(int numeroDeCuenta, TipoDeCuenta tipoDeCuenta, UsuarioUTN usuario,
             boolean estadoCuenta) {
         this.numeroDeCuenta = numeroDeCuenta;
         this.tipoDeCuenta = tipoDeCuenta;
         this.usuario = usuario;
-        this.vehiculos = vehiculos;
+        this.vehiculos = new ArrayList<Vehiculo>();
         this.estadoCuenta = estadoCuenta;
     }
 
