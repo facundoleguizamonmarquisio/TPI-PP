@@ -23,8 +23,8 @@ public class Main {
             System.out.println("----------------------");
         }
 
-        VentanaPrincipal vista = new VentanaPrincipal(cuentas);
         ControladorRegistro controlador = new ControladorRegistro();
+        VentanaPrincipal vista = new VentanaPrincipal(cuentas);
 
         vista.setVisible(true);
     }

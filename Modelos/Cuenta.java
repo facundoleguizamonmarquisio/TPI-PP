@@ -9,8 +9,7 @@ public class Cuenta {
     private ArrayList<Vehiculo> vehiculos;
     private boolean estadoCuenta;
 
-    public Cuenta(int numeroDeCuenta, TipoDeCuenta tipoDeCuenta, UsuarioUTN usuario, ArrayList<Vehiculo> vehiculos,
-            boolean estadoCuenta) {
+    public Cuenta(int numeroDeCuenta, TipoDeCuenta tipoDeCuenta, UsuarioUTN usuario, boolean estadoCuenta) {
         this.numeroDeCuenta = numeroDeCuenta;
         this.tipoDeCuenta = tipoDeCuenta;
         this.usuario = usuario;
@@ -68,6 +67,7 @@ public class Cuenta {
     public void desasociarVehiculo(Vehiculo vehiculo) {
         this.vehiculos.remove(vehiculo);
     }
+
     @Override
     public String toString() {
         return "Cuenta #" + numeroDeCuenta + " - " + usuario.getNombre() + " " + usuario.getApellido();
