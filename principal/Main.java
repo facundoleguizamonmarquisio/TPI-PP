@@ -1,13 +1,10 @@
 package principal;
 
-import java.beans.Visibility;
 import java.util.ArrayList;
 
 import modelos.*;
 import controladores.*;
 import vistas.*;
-
-import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -24,7 +21,7 @@ public class Main {
         }
 
         VentanaPrincipal vista = new VentanaPrincipal(cuentas);
-        ControladorRegistro controlador = new ControladorRegistro(vista);
+        ControladorVentanaPrincipal controlador = new ControladorVentanaPrincipal(vista, cuentas);
 
         vista.setVisible(true);
     }

@@ -21,19 +21,15 @@ public class Cuenta {
     public void setNumeroDeCuenta(int numeroDeCuenta) {
         this.numeroDeCuenta = numeroDeCuenta;
     }
-
     public void setTipoDeCuenta(TipoDeCuenta tipoDeCuenta) {
         this.tipoDeCuenta = tipoDeCuenta;
     }
-
     public void setUsuario(UsuarioUTN usuario) {
         this.usuario = usuario;
     }
-
     public void setVehiculos(ArrayList<Vehiculo> vehiculos) {
         this.vehiculos = vehiculos;
     }
-
     public void setEstadoCuenta(boolean estadoCuenta) {
         this.estadoCuenta = estadoCuenta;
     }
@@ -42,15 +38,12 @@ public class Cuenta {
     public int getNumeroDeCuenta() {
         return this.numeroDeCuenta;
     }
-
     public TipoDeCuenta getTipoDeCuenta() {
         return this.tipoDeCuenta;
     }
-
     public UsuarioUTN getUsuario() {
         return this.usuario;
     }
-
     public ArrayList<Vehiculo> getVehiculos() {
         return this.vehiculos;
     }
@@ -73,4 +66,20 @@ public class Cuenta {
         return "Cuenta #" + numeroDeCuenta + " - " + usuario.getNombre() + " " + usuario.getApellido();
     }
 
+    public void imprimirComprobantes() {
+        System.out.println("Usuario: " + usuario.getNombre() + " " + usuario.getApellido());
+        System.out.println("DNI:     " + usuario.getDocumento());
+
+        for (modelos.Vehiculo vehiculo : this.vehiculos) {
+            System.out.println("\n--- Datos del Vehículo ---");
+            System.out.println("Patente: " + vehiculo.getPatente());
+            System.out.println("Marca:   " + vehiculo.getMarca());
+            System.out.println("Modelo:  " + vehiculo.getModelo());
+            System.out.println("Color:   " + vehiculo.getColor());
+
+            // FECHA Y HORA (Vienen del Vehiculo)
+            System.out.println("\nRegistro: " + vehiculo.getFechaRegistro() + " a las " + vehiculo.getHoraRegistro());
+            System.out.println("-------------------------------------------------------");
+        }
+    }
 }

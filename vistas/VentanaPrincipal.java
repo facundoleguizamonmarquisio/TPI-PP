@@ -30,11 +30,11 @@ public class VentanaPrincipal extends JFrame {
     }
 
     // Getter
-    public JButton getBtnAsociar() {
+    public JButton getBtnRegistrar() {
         return btnRegistrar;
     }
 
-    public JButton getBtnDesasociar() {
+    public JButton getBtnEliminar() {
         return btnEliminar;
     }
 
@@ -46,6 +46,7 @@ public class VentanaPrincipal extends JFrame {
     private void inicializarComponentes(ArrayList<Cuenta> cuentas) {
         btnRegistrar = new JButton("Registrar");
         btnEliminar = new JButton("Eliminar");
+        btnImprimir = new JButton("Imprimir");
 
         cbCuentas = new JComboBox<>();
         for (Cuenta cuenta : cuentas) {
@@ -77,9 +78,7 @@ public class VentanaPrincipal extends JFrame {
     }
 
     private void inicializarEventos() {
-        btnRegistrar.addActionListener(e -> registrar());
 
-        btnEliminar.addActionListener(e -> eliminar());
     }
 
     private void configurarLayout() {
@@ -87,6 +86,7 @@ public class VentanaPrincipal extends JFrame {
 
         add(btnRegistrar);
         add(btnEliminar);
+        add(btnImprimir);
     }
 
     // Eventos
