@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class VentanaPrincipal extends JFrame {
     private JPanel panelCuenta, panelVehiculo, panelComprobante;
-    private JLabel labelNumCuenta, labelUsuario;
+    private JLabel labelUsuario;
     private JComboBox<Cuenta> cbCuentas;
     private JTextField tfEditorComboC, tfMarca, tfModelo, tfPatente, tfColor;
     private JButton btnVerificar, btnRegistrar, btnEliminar, btnImprimir;
@@ -30,10 +30,6 @@ public class VentanaPrincipal extends JFrame {
     }
 
     // Getter
-    public JButton getBtnRegistrar() {
-        return btnRegistrar;
-    }
-
     public JButton getBtnVerificar() {
         return btnRegistrar;
     }
@@ -54,9 +50,15 @@ public class VentanaPrincipal extends JFrame {
     private void inicializarComponentes(ArrayList<Cuenta> cuentas) {
         panelCuenta = new JPanel();
         panelCuenta.setBorder(BorderFactory.createTitledBorder("Datos de la cuenta"));
+        panelCuenta.setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
 
         panelVehiculo = new JPanel();
+        panelVehiculo.setBorder(BorderFactory.createTitledBorder("Datos del vehículo"));
+
         panelComprobante = new JPanel();
+
+        labelUsuario = new JLabel("Usuario");
 
         btnVerificar = new JButton("Verificar cuenta");
         btnRegistrar = new JButton("Registrar");
@@ -88,25 +90,27 @@ public class VentanaPrincipal extends JFrame {
 
     }
 
-    private void inicializarEventos() {
-
-    }
-
     private void configurarLayout() {
         setLayout(new BorderLayout());
+        // Panel Cuenta
+        panelCuenta.setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(5, 5, 5, 5); // margen interno
+        gbc.fill = GridBagConstraints.HORIZONTAL; // que los campos ocupen todo el ancho posible
 
-        add(btnRegistrar);
-        add(btnEliminar);
-        add(btnImprimir);
-    }
+        panelCuenta.add(labelUsuario);
         panelCuenta.add(btnVerificar);
+
+        panelVehiculo.add(btnRegistrar);
+        panelVehiculo.add(btnEliminar);
+
+        panelComprobante.add(btnImprimir);
 
         // add(cbCuentas);
 
-        // add(btnRegistrar);
-        // add(btnEliminar);
-
         add(panelCuenta, BorderLayout.NORTH);
+        add(panelVehiculo, BorderLayout.CENTER);
+        add(panelComprobante, BorderLayout.SOUTH);
     }
 
 }
