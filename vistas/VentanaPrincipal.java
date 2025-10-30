@@ -12,9 +12,11 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 public class VentanaPrincipal extends JFrame {
+    private JPanel panelCuenta, panelVehiculo, panelComprobante;
+    private JLabel labelNumCuenta, labelUsuario;
     private JComboBox<Cuenta> cbCuentas;
     private JTextField tfEditorComboC, tfMarca, tfModelo, tfPatente, tfColor;
-    private JButton btnEliminar, btnRegistrar, btnImprimir;
+    private JButton btnVerificar, btnRegistrar, btnEliminar, btnImprimir;
 
     public VentanaPrincipal(ArrayList<Cuenta> cuentas) {
         setTitle("Registro de vehículo");
@@ -24,12 +26,18 @@ public class VentanaPrincipal extends JFrame {
 
         inicializarComponentes(cuentas);
 
-        inicializarEventos();
-
         configurarLayout();
     }
 
     // Getter
+    public JButton getBtnRegistrar() {
+        return btnRegistrar;
+    }
+
+    public JButton getBtnVerificar() {
+        return btnRegistrar;
+    }
+
     public JButton getBtnRegistrar() {
         return btnRegistrar;
     }
@@ -44,6 +52,13 @@ public class VentanaPrincipal extends JFrame {
 
     // Métodos
     private void inicializarComponentes(ArrayList<Cuenta> cuentas) {
+        panelCuenta = new JPanel();
+        panelCuenta.setBorder(BorderFactory.createTitledBorder("Datos de la cuenta"));
+
+        panelVehiculo = new JPanel();
+        panelComprobante = new JPanel();
+
+        btnVerificar = new JButton("Verificar cuenta");
         btnRegistrar = new JButton("Registrar");
         btnEliminar = new JButton("Eliminar");
         btnImprimir = new JButton("Imprimir");
@@ -53,23 +68,19 @@ public class VentanaPrincipal extends JFrame {
             cbCuentas.addItem(cuenta);
         }
         cbCuentas.setEditable(true);
-
+        cbCuentas.setSelectedIndex(-1);
         JTextField tfEditorComboC = (JTextField) cbCuentas.getEditor().getEditorComponent();
-
         tfEditorComboC.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
                 String texto = tfEditorComboC.getText().toLowerCase();
                 cbCuentas.hidePopup(); // Ocultar temporalmente
-
                 cbCuentas.removeAllItems();
-
                 for (Cuenta cuenta : cuentas) {
                     if (cuenta.toString().toLowerCase().contains(texto)) {
                         cbCuentas.addItem(cuenta);
                     }
                 }
-
                 cbCuentas.getEditor().setItem(texto);
                 cbCuentas.showPopup();
             }
@@ -82,20 +93,20 @@ public class VentanaPrincipal extends JFrame {
     }
 
     private void configurarLayout() {
-        add(cbCuentas);
+        setLayout(new BorderLayout());
 
         add(btnRegistrar);
         add(btnEliminar);
         add(btnImprimir);
     }
+        panelCuenta.add(btnVerificar);
 
-    // Eventos
-    private void registrar() {
-        System.out.println("Registrado");
-    }
+        // add(cbCuentas);
 
-    private void eliminar() {
-        System.out.println("Eliminado");
+        // add(btnRegistrar);
+        // add(btnEliminar);
+
+        add(panelCuenta, BorderLayout.NORTH);
     }
 
 }
