@@ -15,16 +15,16 @@ public class VentanaPrincipal extends JFrame {
     private JPanel panelContenido, panelCuenta, panelVehiculo, panelComprobante;
     private JLabel labelUsuario, labelMarca, labelModelo, labelPatente, labelColor;
     private JComboBox<UsuarioUTN> cbUsuarios;
-    private JTextField tfUsuario, tfEditorComboC, tfMarca, tfModelo, tfPatente, tfColor;
+    private JTextField tfMarca, tfModelo, tfPatente, tfColor;
     private JButton btnVerificar, btnRegistrar, btnEliminar, btnImprimir;
 
-    public VentanaPrincipal(ArrayList<UsuarioUTN> usuarios) {
+    public VentanaPrincipal(ArrayList<UsuarioUTN> usuarios, ArrayList<Cuenta> cuentas) {
         setTitle("Registro de vehículo");
         setSize(550, 400);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
 
-        inicializarComponentes(usuarios);
+        inicializarComponentes(usuarios, cuentas);
 
         configurarLayout();
     }
@@ -47,7 +47,7 @@ public class VentanaPrincipal extends JFrame {
     }
 
     // Métodos
-    private void inicializarComponentes(ArrayList<UsuarioUTN> usuarios) {
+    private void inicializarComponentes(ArrayList<UsuarioUTN> usuarios, ArrayList<Cuenta> cuentas) {
         panelContenido = new JPanel();
 
         panelCuenta = new JPanel();
