@@ -58,7 +58,7 @@ public class VentanaPrincipal extends JFrame {
 
         labelUsuario = new JLabel("Usuario");
 
-        tfUsuario = new JTextField("Usuario");
+        tfUsuario = new JTextField();
 
         btnVerificar = new JButton("Verificar cuenta");
         btnRegistrar = new JButton("Registrar");
