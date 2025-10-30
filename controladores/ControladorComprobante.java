@@ -22,5 +22,3 @@ public class ControladorComprobante {
         return sb.toString();
     }
 }
-
-

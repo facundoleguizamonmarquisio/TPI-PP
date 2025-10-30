@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-public class VentanaComprobanteRegistroVehiculo extends JFrame {
+public class VentanaComprobante extends JFrame {
 
     private Cuenta cuenta;
     private Vehiculo vehiculo;
@@ -15,7 +15,7 @@ public class VentanaComprobanteRegistroVehiculo extends JFrame {
     private JTextArea areaDatos;
     private JButton btnGenerarComprobante;
 
-    public VentanaComprobanteRegistroVehiculo(Cuenta cuenta, Vehiculo vehiculo) {
+    public VentanaComprobante(Cuenta cuenta, Vehiculo vehiculo) {
         this.cuenta = cuenta;
         this.vehiculo = vehiculo;
 
@@ -39,11 +39,10 @@ public class VentanaComprobanteRegistroVehiculo extends JFrame {
         btnGenerarComprobante.addActionListener((ActionEvent e) -> {
             String comprobante = ControladorComprobante.generarComprobante(cuenta, vehiculo);
             JOptionPane.showMessageDialog(
-                VentanaComprobanteRegistroVehiculo.this,
-                comprobante,
-                "Comprobante Generado",
-                JOptionPane.INFORMATION_MESSAGE
-            );
+                    VentanaComprobante.this,
+                    comprobante,
+                    "Comprobante Generado",
+                    JOptionPane.INFORMATION_MESSAGE);
         });
 
         add(new JScrollPane(areaDatos), BorderLayout.CENTER);
@@ -52,16 +51,15 @@ public class VentanaComprobanteRegistroVehiculo extends JFrame {
 
     private void mostrarDatos() {
         String texto = String.format(
-            "=== DATOS DEL cuenta ===\nNombre: %s\nPatente: %s\nTeléfono: %s\n\n=== DATOS DEL VEHÍCULO ===\nMarca: %s\nModelo: %s\nPlaca: %s\nFecha Registro: %s\nHora Registro: %s",
-            cuenta.getUsuario().getNombre(),
-            cuenta.getUsuario().getDocumento(),
-            cuenta.getUsuario().getTelefono(),
-            vehiculo.getMarca(),
-            vehiculo.getModelo(),
-            vehiculo.getPatente(),
-            vehiculo.getFechaRegistro(),
-            vehiculo.getHoraRegistro()
-        );
+                "=== DATOS DEL cuenta ===\nNombre: %s\nPatente: %s\nTeléfono: %s\n\n=== DATOS DEL VEHÍCULO ===\nMarca: %s\nModelo: %s\nPlaca: %s\nFecha Registro: %s\nHora Registro: %s",
+                cuenta.getUsuario().getNombre(),
+                cuenta.getUsuario().getDocumento(),
+                cuenta.getUsuario().getTelefono(),
+                vehiculo.getMarca(),
+                vehiculo.getModelo(),
+                vehiculo.getPatente(),
+                vehiculo.getFechaRegistro(),
+                vehiculo.getHoraRegistro());
 
         areaDatos.setText(texto);
     }

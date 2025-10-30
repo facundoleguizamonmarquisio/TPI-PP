@@ -12,19 +12,19 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 public class VentanaPrincipal extends JFrame {
-    private JPanel panelCuenta, panelVehiculo, panelComprobante;
+    private JPanel panelContenido, panelCuenta, panelVehiculo, panelComprobante;
     private JLabel labelUsuario, labelMarca, labelModelo, labelPatente, labelColor;
-    private JComboBox<Cuenta> cbCuentas;
+    private JComboBox<UsuarioUTN> cbUsuarios;
     private JTextField tfUsuario, tfEditorComboC, tfMarca, tfModelo, tfPatente, tfColor;
     private JButton btnVerificar, btnRegistrar, btnEliminar, btnImprimir;
 
-    public VentanaPrincipal(ArrayList<Cuenta> cuentas) {
+    public VentanaPrincipal(ArrayList<UsuarioUTN> usuarios) {
         setTitle("Registro de vehículo");
         setSize(550, 400);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
 
-        inicializarComponentes(cuentas);
+        inicializarComponentes(usuarios);
 
         configurarLayout();
     }
@@ -47,7 +47,9 @@ public class VentanaPrincipal extends JFrame {
     }
 
     // Métodos
-    private void inicializarComponentes(ArrayList<Cuenta> cuentas) {
+    private void inicializarComponentes(ArrayList<UsuarioUTN> usuarios) {
+        panelContenido = new JPanel();
+
         panelCuenta = new JPanel();
         panelCuenta.setBorder(BorderFactory.createTitledBorder("Datos de la cuenta"));
 
@@ -57,15 +59,14 @@ public class VentanaPrincipal extends JFrame {
         panelComprobante = new JPanel();
 
         labelUsuario = new JLabel("Usuario");
+        labelPatente = new JLabel("Patente");
         labelMarca = new JLabel("Marca");
         labelModelo = new JLabel("Modelo");
-        labelPatente = new JLabel("Patente");
         labelColor = new JLabel("Color");
 
-        tfUsuario = new JTextField();
+        tfPatente = new JTextField();
         tfMarca = new JTextField();
         tfModelo = new JTextField();
-        tfPatente = new JTextField();
         tfColor = new JTextField();
 
         btnVerificar = new JButton("Verificar cuenta");
@@ -73,26 +74,26 @@ public class VentanaPrincipal extends JFrame {
         btnEliminar = new JButton("Eliminar");
         btnImprimir = new JButton("Imprimir");
 
-        cbCuentas = new JComboBox<>();
-        for (Cuenta cuenta : cuentas) {
-            cbCuentas.addItem(cuenta);
+        cbUsuarios = new JComboBox<>();
+        for (UsuarioUTN usuario : usuarios) {
+            cbUsuarios.addItem(usuario);
         }
-        cbCuentas.setEditable(true);
-        cbCuentas.setSelectedIndex(-1);
-        JTextField tfEditorComboC = (JTextField) cbCuentas.getEditor().getEditorComponent();
+        cbUsuarios.setEditable(true);
+        cbUsuarios.setSelectedIndex(-1);
+        JTextField tfEditorComboC = (JTextField) cbUsuarios.getEditor().getEditorComponent();
         tfEditorComboC.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
                 String texto = tfEditorComboC.getText().toLowerCase();
-                cbCuentas.hidePopup(); // Ocultar temporalmente
-                cbCuentas.removeAllItems();
-                for (Cuenta cuenta : cuentas) {
-                    if (cuenta.toString().toLowerCase().contains(texto)) {
-                        cbCuentas.addItem(cuenta);
+                cbUsuarios.hidePopup(); // Ocultar temporalmente
+                cbUsuarios.removeAllItems();
+                for (UsuarioUTN usuario : usuarios) {
+                    if (usuario.toString().toLowerCase().contains(texto)) {
+                        cbUsuarios.addItem(usuario);
                     }
                 }
-                cbCuentas.getEditor().setItem(texto);
-                cbCuentas.showPopup();
+                cbUsuarios.getEditor().setItem(texto);
+                cbUsuarios.showPopup();
             }
         });
 
@@ -100,6 +101,9 @@ public class VentanaPrincipal extends JFrame {
 
     private void configurarLayout() {
         setLayout(new BorderLayout());
+
+        panelContenido.setLayout(new BoxLayout(panelContenido, BoxLayout.Y_AXIS));
+
         panelCuenta.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
@@ -111,7 +115,7 @@ public class VentanaPrincipal extends JFrame {
 
         gbc.gridx = 1;
         gbc.gridy = 0;
-        panelCuenta.add(tfUsuario, gbc);
+        panelCuenta.add(cbUsuarios, gbc);
 
         gbc.gridx = 0;
         gbc.gridy = 2;
@@ -124,27 +128,27 @@ public class VentanaPrincipal extends JFrame {
 
         gbc.gridx = 0;
         gbc.gridy = 0;
-        panelVehiculo.add(labelMarca, gbc);
-
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        panelVehiculo.add(tfMarca, gbc);
-
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        panelVehiculo.add(labelModelo, gbc);
-
-        gbc.gridx = 1;
-        gbc.gridy = 1;
-        panelVehiculo.add(tfModelo, gbc);
-
-        gbc.gridx = 0;
-        gbc.gridy = 2;
         panelVehiculo.add(labelPatente, gbc);
 
         gbc.gridx = 1;
-        gbc.gridy = 2;
+        gbc.gridy = 0;
         panelVehiculo.add(tfPatente, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        panelVehiculo.add(labelMarca, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        panelVehiculo.add(tfMarca, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        panelVehiculo.add(labelModelo, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 2;
+        panelVehiculo.add(tfModelo, gbc);
 
         gbc.gridx = 0;
         gbc.gridy = 3;
@@ -164,10 +168,12 @@ public class VentanaPrincipal extends JFrame {
 
         panelComprobante.add(btnImprimir);
 
-        // add(cbCuentas);
+        // add(cbUsuarios);
 
-        add(panelCuenta, BorderLayout.NORTH);
-        add(panelVehiculo, BorderLayout.CENTER);
-        add(panelComprobante, BorderLayout.SOUTH);
+        panelContenido.add(panelCuenta);
+        panelContenido.add(Box.createVerticalStrut(10));
+        panelContenido.add(panelVehiculo);
+
+        add(panelContenido, BorderLayout.CENTER);
     }
 }
