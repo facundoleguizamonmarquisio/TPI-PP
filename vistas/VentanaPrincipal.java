@@ -45,4 +45,17 @@ public class VentanaPrincipal extends JFrame {
         // add(btnImprimir);
 
     }
+
+    // Getter
+    public JButton getBtnAsociar() {
+        return btnAsociar;
+    }
+
+    public JButton getBtnDesasociar() {
+        return btnDesasociar;
+    }
+
+    public JButton getBtnImprimir() {
+        return btnImprimir;
+    }
 }

@@ -24,7 +24,7 @@ public class Main {
         }
 
         ControladorRegistro controlador = new ControladorRegistro();
-        VentanaPrincipal vista = new VentanaPrincipal(cuentas);
+        VentanaPrincipal vista = new VentanaPrincipal(vista);
 
         vista.setVisible(true);
     }
