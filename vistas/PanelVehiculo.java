@@ -97,5 +97,8 @@ public class PanelVehiculo extends JPanel {
         gbc.gridx = 1;
         gbc.gridy = 4;
         add(btnEliminar, gbc);
+
+        setMinimumSize(getPreferredSize());
+        setMaximumSize(new Dimension(Integer.MAX_VALUE, 200));
     }
 }

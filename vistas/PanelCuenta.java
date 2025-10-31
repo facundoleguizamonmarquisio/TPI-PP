@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.swing.*;
+
+import modelos.UsuarioUTN;
+
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -13,8 +16,11 @@ public class PanelCuenta extends JPanel {
     private JLabel labelUsuario;
     private JComboBox<String> cbUsuarios;
     private JButton btnVerificar;
+    private List<String> documentoUsuarios;
 
-    public PanelCuenta() {
+    public PanelCuenta(List<String> documentoUsuarios) {
+        this.documentoUsuarios = documentoUsuarios;
+
         setBorder(BorderFactory.createTitledBorder("Datos de la cuenta"));
 
         inicializarComponentes();
@@ -22,41 +28,48 @@ public class PanelCuenta extends JPanel {
         configurarLayout();
     }
 
+    // Setter
+    public void setCbUsuarios() {
+        for (String documento : documentoUsuarios) {
+            cbUsuarios.addItem(documento);
+        }
+        cbUsuarios.setEditable(true);
+        cbUsuarios.setSelectedIndex(-1);
+        JTextField tfEditorComboC = (JTextField) cbUsuarios.getEditor().getEditorComponent();
+        tfEditorComboC.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                String texto = tfEditorComboC.getText().toLowerCase();
+                cbUsuarios.hidePopup(); // Ocultar temporalmente
+                cbUsuarios.removeAllItems();
+                for (String documento : documentoUsuarios) {
+                    if (documento.toString().toLowerCase().contains(texto)) {
+                        cbUsuarios.addItem(documento);
+                    }
+                }
+                cbUsuarios.getEditor().setItem(texto);
+                cbUsuarios.showPopup();
+            }
+        });
+    }
+
     // Getter
     public JButton getBtnVerificar() {
         return btnVerificar;
     }
 
+    public JComboBox<String> getCbUsuarios() {
+        return cbUsuarios;
+    }
+
     // Métodos
     private void inicializarComponentes() {
 
-        labelUsuario = new JLabel("Usuario");
+        labelUsuario = new JLabel("DNI (Usuario)");
 
         btnVerificar = new JButton("Verificar cuenta");
 
         cbUsuarios = new JComboBox<>();
-        // for (UsuarioUTN usuario : usuarios) {
-        // cbUsuarios.addItem(usuario);
-        // }
-        // cbUsuarios.setEditable(true);
-        // cbUsuarios.setSelectedIndex(-1);
-        // JTextField tfEditorComboC = (JTextField)
-        // cbUsuarios.getEditor().getEditorComponent();
-        // tfEditorComboC.addKeyListener(new KeyAdapter() {
-        // @Override
-        // public void keyReleased(KeyEvent e) {
-        // String texto = tfEditorComboC.getText().toLowerCase();
-        // cbUsuarios.hidePopup(); // Ocultar temporalmente
-        // cbUsuarios.removeAllItems();
-        // for (UsuarioUTN usuario : usuarios) {
-        // if (usuario.toString().toLowerCase().contains(texto)) {
-        // cbUsuarios.addItem(usuario);
-        // }
-        // }
-        // cbUsuarios.getEditor().setItem(texto);
-        // cbUsuarios.showPopup();
-        // }
-        // });
 
     }
 
