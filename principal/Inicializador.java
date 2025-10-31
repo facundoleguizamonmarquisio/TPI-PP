@@ -36,6 +36,9 @@ public class Inicializador {
                 "carlos@mail.com", tiposUsuario.get(2), 7000));
         usuarios.add(new UsuarioUTN("Lucía", "Fernández", "44332211", "Calle 4", "Ciudad D", "15/12/1995", "4444444444",
                 "lucia@mail.com", tiposUsuario.get(3), 14000));
+        usuarios.add(new UsuarioUTN("Milagros", "Mondaca", "47322454", "Avenida siempre viva", "Villa maria",
+                "23/06/2006", "4444444444",
+                "miliMon@gmail.com", tiposUsuario.get(1), 17122));
         return usuarios;
     }
 

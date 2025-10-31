@@ -1,7 +1,6 @@
 package controladores;
 
-import modelos.Cuenta;
-import modelos.Vehiculo;
+import modelos.*;
 
 public class ControladorComprobante {
 
