@@ -31,4 +31,5 @@ public class TipoDeCuenta {
         return this.descripcion;
     }
 
+    // ToString
 }

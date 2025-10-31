@@ -12,7 +12,7 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 public class VentanaPrincipal extends JFrame {
-    private JPanel panelContenido, panelCuenta, panelVehiculo, panelComprobante;
+    private JPanel panelContenido;
     private JLabel labelUsuario, labelMarca, labelModelo, labelPatente, labelColor;
     private JComboBox<UsuarioUTN> cbUsuarios;
     private JTextField tfMarca, tfModelo, tfPatente, tfColor;
@@ -22,7 +22,6 @@ public class VentanaPrincipal extends JFrame {
         setTitle("Registro de vehículo");
         setSize(550, 400);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLayout(new FlowLayout());
 
         inicializarComponentes();
 
@@ -45,14 +44,16 @@ public class VentanaPrincipal extends JFrame {
     }
 
     public void agregarPanelCuenta(PanelCuenta panelCuenta) {
-
         panelContenido.add(panelCuenta);
         panelContenido.revalidate(); // Actualiza layout
         panelContenido.repaint(); // Redibuja interfaz
 
     }
 
-    public void agregarPanelVehiculo() {
+    public void agregarPanelVehiculo(PanelVehiculo panelVehiculo) {
+        panelContenido.add(panelVehiculo);
+        panelContenido.revalidate(); // Actualiza layout
+        panelContenido.repaint(); // Redibuja interfaz
 
     }
 }

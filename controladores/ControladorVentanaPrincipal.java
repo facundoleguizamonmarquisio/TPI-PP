@@ -1,13 +1,13 @@
 package controladores;
 
 import vistas.*;
+import modelos.*;
+
+import java.util.ArrayList;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import modelos.Cuenta;
-import vistas.VentanaPrincipalNO;
-import java.util.ArrayList;
 
 public class ControladorVentanaPrincipal {
     private VentanaPrincipal vistaPrincipal;
@@ -19,12 +19,18 @@ public class ControladorVentanaPrincipal {
     public ControladorVentanaPrincipal() {
     }
 
+    // Métodos
     public void inicializarAplicacion() {
         vistaPrincipal = new VentanaPrincipal();
 
         vistaCuenta = new PanelCuenta();
-        ctrlCuenta = new ControladorCuenta();
+        vistaVehiculo = new PanelVehiculo();
+
+        ctrlCuenta = new ControladorCuenta(vistaCuenta);
+        ctrlVehiculo = new ControladorVehiculo(vistaVehiculo);
+
         vistaPrincipal.agregarPanelCuenta(vistaCuenta);
+        vistaPrincipal.agregarPanelVehiculo(vistaVehiculo);
 
         vistaPrincipal.setVisible(true);
     }

@@ -30,6 +30,8 @@ public class UsuarioUTN extends Persona {
     }
 
     // Métodos
+
+    // ToString
     @Override
     public String toString() {
         return String.format("%s %s - DNI: %s - Legajo: %s", nombre, apellido, documento, legajo);

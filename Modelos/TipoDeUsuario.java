@@ -31,4 +31,6 @@ public class TipoDeUsuario {
     public String getDescripcion() {
         return this.descripcion;
     }
+
+    // ToString
 }

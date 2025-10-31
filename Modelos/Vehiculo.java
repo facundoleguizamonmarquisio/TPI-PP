@@ -65,6 +65,7 @@ public class Vehiculo {
         return this.horaRegistro;
     }
 
+    // ToString
     @Override
     public String toString() {
         return "  -> Patente: " + patente + ", Marca: " + marca + ", Color: " + color + " | REGISTRADO: "

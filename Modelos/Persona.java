@@ -83,12 +83,14 @@ public abstract class Persona {
   public String getTelefono() {
     return this.telefono;
   }
-  
+
   public String getMail() {
     return this.mail;
-}
+  }
 
   // Métodos
+
+  // ToString
   @Override
   public String toString() {
     return "Nombre: " + nombre +
