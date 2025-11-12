@@ -17,6 +17,7 @@ public class PanelVehiculo extends JPanel {
     private JLabel labelMarca, labelModelo, labelPatente, labelColor;
     private JTextField tfMarca, tfModelo, tfPatente, tfColor;
     private JButton btnRegistrar, btnEliminar;
+    private JLabel lblMensajeRegistrar;
 
     public PanelVehiculo() {
         setBorder(BorderFactory.createTitledBorder("Gestión de vehículos"));
@@ -34,6 +35,7 @@ public class PanelVehiculo extends JPanel {
     public JButton getBtnEliminar() {
         return btnEliminar;
     }
+    
 
     // Métodos
     private void inicializarComponentes() {
@@ -49,6 +51,13 @@ public class PanelVehiculo extends JPanel {
 
         btnRegistrar = new JButton("Registrar");
         btnEliminar = new JButton("Eliminar");
+
+        lblMensajeRegistrar = new JLabel();
+
+    }
+
+        public void mostrarLblMensajeRegistrar(String mensaje) {
+        lblMensajeRegistrar.setText(mensaje);
     }
 
     private void configurarLayout() {
@@ -97,8 +106,17 @@ public class PanelVehiculo extends JPanel {
         gbc.gridx = 1;
         gbc.gridy = 4;
         add(btnEliminar, gbc);
+        
+        gbc.gridx = 0;
+        gbc.gridy = 5;
+        gbc.gridwidth = 2;
+        add(lblMensajeRegistrar, gbc);
 
         setMinimumSize(getPreferredSize());
         setMaximumSize(new Dimension(Integer.MAX_VALUE, 200));
+
+
     }
+
+
 }

@@ -6,4 +6,5 @@ public interface CuentaVerificadaListener {
     void onCuentaEncontrada(Cuenta cuenta);
 
     void onCuentaNoEncontrada();
+        
 }

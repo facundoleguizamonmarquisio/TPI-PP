@@ -22,11 +22,8 @@ public class Mensajes {
     // ControladorCuenta.java - L72
     public static final String CUENTA_CREADA = "La cuenta fue creada correctamente.";
 
-    // ControladorCuenta.java - L78
-    public static final String CUENTA_EXISTENTE = "El usuario ya posee una cuenta.";
-
     // ControladorVehiculo.java - L40
-    public static final String VEHICULO_AGREGADO = "Vehículo agregado correctamente.";
+    public static final String VEHICULO_REGISTRADO = "Vehículo registrado correctamente.";
 
     // ControladorVehiculo.java - L51
     public static final String VEHICULO_EXISTENTE = "El vehículo ya se encuentra registrado.";

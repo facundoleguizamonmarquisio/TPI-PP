@@ -31,7 +31,7 @@ public class ControladorVehiculo implements java.awt.event.ActionListener {
     }
 
     private void manejarRegistro() {
-        System.out.println("Vehiculo Registrado.");
+         vistaVehiculo.mostrarLblMensajeRegistrar(utilidades.Mensajes.VEHICULO_REGISTRADO);
     }
 
     private void manejarEliminacion() {

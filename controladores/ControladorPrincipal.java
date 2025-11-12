@@ -64,4 +64,6 @@ public class ControladorPrincipal implements CuentaVerificadaListener {
         vistaCuenta.mostrarLblVerificar(utilidades.Mensajes.NO_TIENE_CUENTA);
 
     }
+
+
 }
