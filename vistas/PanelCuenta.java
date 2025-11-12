@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 import javax.swing.*;
 
-import modelos.UsuarioUTN;
+import modelos.UsuarioUTN; //Se deberia sacar?
 
 import java.awt.*;
 import java.awt.event.KeyAdapter;
@@ -16,7 +16,6 @@ public class PanelCuenta extends JPanel {
     private JLabel labelUsuario;
     private JComboBox<String> cbUsuarios;
     private JButton btnVerificar;
-    private JLabel lblMensajeVerificacion;
     private List<String> documentoUsuarios;
 
     public PanelCuenta(List<String> documentoUsuarios) {
@@ -53,9 +52,7 @@ public class PanelCuenta extends JPanel {
             }
         });
     }
-        public void mostrarLblVerificar(String mensaje) {
-        lblMensajeVerificacion.setText(mensaje);
-    }
+    
     // Getter
     public JButton getBtnVerificar() {
         return btnVerificar;
@@ -73,8 +70,6 @@ public class PanelCuenta extends JPanel {
         btnVerificar = new JButton("Verificar cuenta");
 
         cbUsuarios = new JComboBox<>();
-
-        lblMensajeVerificacion = new JLabel();
 
     }
 
@@ -97,9 +92,6 @@ public class PanelCuenta extends JPanel {
         gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.CENTER;
         add(btnVerificar, gbc);
-
-        gbc.gridy = 3; // debajo del botón
-        add(lblMensajeVerificacion, gbc);  
 
         setMinimumSize(getPreferredSize());
         setMaximumSize(new Dimension(Integer.MAX_VALUE, 150));

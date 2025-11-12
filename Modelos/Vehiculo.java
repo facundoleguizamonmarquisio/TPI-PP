@@ -1,7 +1,5 @@
 package modelos;
-
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import utilidades.Formato;
 
 public class Vehiculo {
     private String marca;
@@ -15,12 +13,10 @@ public class Vehiculo {
         this.marca = marca;
         this.modelo = modelo;
         this.patente = patente;
-        this.color = color;
+        this.color = color; 
 
-        LocalDateTime ahora = LocalDateTime.now();
-        this.fechaRegistro = ahora.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        this.horaRegistro = ahora.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-
+        this.fechaRegistro = Formato.devolverFechaActualFormateada();
+        this.horaRegistro = Formato.devolverHoraActualFormateada();
     }
 
     // Setter
