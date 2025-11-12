@@ -2,6 +2,7 @@ package controladores;
 
 import vistas.*;
 import modelos.*;
+import utilidades.Mensajes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,11 +56,12 @@ public class ControladorPrincipal implements CuentaVerificadaListener {
     public void onCuentaEncontrada(Cuenta cuentaSeleccionada) {
         this.cuentaSeleccionada = cuentaSeleccionada;
         vistaPrincipal.agregarPanelVehiculo(vistaVehiculo);
-        System.out.println("Tiene cuenta");
+        vistaCuenta.mostrarLblVerificar(utilidades.Mensajes.CUENTA_ENCONTRADA);
     }
 
     @Override
     public void onCuentaNoEncontrada() {
-        System.out.println("NO tiene cuenta");
+        vistaCuenta.mostrarLblVerificar(utilidades.Mensajes.NO_TIENE_CUENTA);
+
     }
 }
