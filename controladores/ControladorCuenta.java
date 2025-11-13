@@ -51,7 +51,6 @@ public class ControladorCuenta implements ActionListener {
                 cvlistener.onCuentaNoEncontrada();
 
             }
-
         }
     }
 

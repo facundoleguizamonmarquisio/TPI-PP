@@ -56,12 +56,12 @@ public class ControladorPrincipal implements CuentaVerificadaListener {
     public void onCuentaEncontrada(Cuenta cuentaSeleccionada) {
         this.cuentaSeleccionada = cuentaSeleccionada;
         vistaPrincipal.agregarPanelVehiculo(vistaVehiculo);
-        vistaCuenta.mostrarLblVerificar(utilidades.Mensajes.CUENTA_ENCONTRADA);
+        // Mensaje de cuenta encontrada(borrar)
     }
 
     @Override
     public void onCuentaNoEncontrada() {
-        vistaCuenta.mostrarLblVerificar(utilidades.Mensajes.NO_TIENE_CUENTA);
+        // Mensaje de cuenta no encontrada(borrar)
 
     }
 

@@ -35,6 +35,6 @@ public class ControladorVehiculo implements java.awt.event.ActionListener {
     }
 
     private void manejarEliminacion() {
-        System.out.println("Vehiculo eliminado.");
+        //System.out.println("Vehiculo eliminado.");
     }
 }

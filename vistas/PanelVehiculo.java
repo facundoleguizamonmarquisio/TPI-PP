@@ -5,8 +5,8 @@ import java.util.stream.Collectors;
 
 import javax.swing.*;
 
-import modelos.Cuenta;
-import modelos.UsuarioUTN;
+import modelos.Cuenta; //Se deberia sacar?
+import modelos.UsuarioUTN; //Se deberia sacar?
 
 import java.awt.*;
 import java.awt.event.KeyAdapter;
@@ -16,7 +16,6 @@ import java.util.ArrayList;
 public class PanelVehiculo extends JPanel {
     private JLabel labelMarca, labelModelo, labelPatente, labelColor;
     private JTextField tfMarca, tfModelo, tfPatente, tfColor;
-    private JButton btnRegistrar, btnEliminar;
     private JLabel lblMensajeRegistrar;
 
     public PanelVehiculo() {
@@ -43,6 +42,7 @@ public class PanelVehiculo extends JPanel {
         labelMarca = new JLabel("Marca");
         labelModelo = new JLabel("Modelo");
         labelColor = new JLabel("Color");
+        lblMensajeRegistrar = new JLabel();
 
         tfPatente = new JTextField();
         tfMarca = new JTextField();
@@ -52,7 +52,6 @@ public class PanelVehiculo extends JPanel {
         btnRegistrar = new JButton("Registrar");
         btnEliminar = new JButton("Eliminar");
 
-        lblMensajeRegistrar = new JLabel();
 
     }
 
@@ -112,6 +111,8 @@ public class PanelVehiculo extends JPanel {
         gbc.gridwidth = 2;
         add(lblMensajeRegistrar, gbc);
 
+    
+        
         setMinimumSize(getPreferredSize());
         setMaximumSize(new Dimension(Integer.MAX_VALUE, 200));
 
