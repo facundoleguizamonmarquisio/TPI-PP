@@ -15,6 +15,7 @@ public class ControladorPrincipal implements CuentaVerificadaListener {
     private VentanaPrincipal vistaPrincipal;
     private PanelCuenta vistaCuenta;
     private PanelVehiculo vistaVehiculo;
+    private PanelComprobante vistaComprobante;
     private ControladorCuenta ctrlCuenta;
     private ControladorVehiculo ctrlVehiculo;
     private ArrayList<UsuarioUTN> usuarios;
@@ -32,6 +33,7 @@ public class ControladorPrincipal implements CuentaVerificadaListener {
 
         inicializarVistaCuenta();
         inicializarVistaVehiculo();
+        inicializarVistaComprobante();
 
         ctrlCuenta = new ControladorCuenta(vistaCuenta, cuentas);
         ctrlCuenta.setCuentaVerificadaListener(this);
@@ -50,12 +52,37 @@ public class ControladorPrincipal implements CuentaVerificadaListener {
 
     private void inicializarVistaVehiculo() {
         vistaVehiculo = new PanelVehiculo();
+
+        vistaVehiculo.getBtnRegistrar().addActionListener(e -> {
+
+        Vehiculo vehiculo = vistaVehiculo.obtenerVehiculoActual();
+        String texto = ControladorComprobante.generarComprobante(cuentaSeleccionada, vehiculo);
+
+        System.out.println(texto); //IMPRESION POR CONSOLA [BORRAR]
+
+    });
+    }
+
+    private void inicializarVistaComprobante() {
+        vistaComprobante = new PanelComprobante();
+
+        vistaComprobante.getBtnGuardar().addActionListener(e -> {
+
+        Vehiculo vehiculo = vistaVehiculo.obtenerVehiculoActual();
+        Cuenta cuenta = cuentaSeleccionada;
+
+        String strComprobante = ControladorComprobante.generarComprobante(cuenta, vehiculo);
+
+        ControladorComprobante.guardarComprobanteTXT(strComprobante); //Aun no esta implementada la logica de crear un txt y guardarlo en local
+         });
     }
 
     @Override
     public void onCuentaEncontrada(Cuenta cuentaSeleccionada) {
         this.cuentaSeleccionada = cuentaSeleccionada;
+        
         vistaPrincipal.agregarPanelVehiculo(vistaVehiculo);
+        vistaPrincipal.agregarPanelComprobante(vistaComprobante);
         // Mensaje de cuenta encontrada(borrar)
     }
 

@@ -56,4 +56,10 @@ public class VentanaPrincipal extends JFrame {
         panelContenido.repaint(); // Redibuja interfaz
 
     }
+        public void agregarPanelComprobante(PanelComprobante panelComprobante) {
+        panelContenido.add(panelComprobante);
+        panelContenido.revalidate(); // Actualiza layout
+        panelContenido.repaint(); // Redibuja interfaz
+
+    }
 }

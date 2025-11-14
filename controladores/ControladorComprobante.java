@@ -5,6 +5,7 @@ import modelos.*;
 public class ControladorComprobante {
 
     public static String generarComprobante(Cuenta cuenta, Vehiculo vehiculo) {
+
         StringBuilder sb = new StringBuilder();
         sb.append("===== COMPROBANTE DE REGISTRO DE VEHÍCULO =====\n\n");
         sb.append("=== DATOS DEL cuenta ===\n");
@@ -19,5 +20,9 @@ public class ControladorComprobante {
         sb.append("Hora de registro: ").append(vehiculo.getHoraRegistro()).append("\n");
         sb.append("=============================================\n");
         return sb.toString();
+    }
+
+    public static void guardarComprobanteTXT(String strComprobante) {
+     //Se debe crear un archivo TXT con lo que devuelve generarComprobante
     }
 }

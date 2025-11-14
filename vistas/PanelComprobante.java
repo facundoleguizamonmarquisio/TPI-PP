@@ -7,21 +7,21 @@ import javax.swing.*;
 
 import modelos.Cuenta; //Se deberia sacar?
 import modelos.UsuarioUTN; //Se deberia sacar?
-import modelos.Vehiculo;
 
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-public class PanelVehiculo extends JPanel {
+public class PanelComprobante extends JPanel {
     private JLabel labelMarca, labelModelo, labelPatente, labelColor;
     private JTextField tfMarca, tfModelo, tfPatente, tfColor;
-    private JButton btnRegistrar, btnEliminar;
+    private JButton btnGuardar, btnSalir;
+    //No se que se pretende con el boton salir, responder comentario
     private JLabel lblMensajeRegistrar;
 
-    public PanelVehiculo() {
-        setBorder(BorderFactory.createTitledBorder("Gestión de vehículos"));
+    public PanelComprobante() {
+        setBorder(BorderFactory.createTitledBorder("Comprobante"));
 
         inicializarComponentes();
 
@@ -29,12 +29,12 @@ public class PanelVehiculo extends JPanel {
     }
 
     // Getter
-    public JButton getBtnRegistrar() {
-        return btnRegistrar;
+    public JButton getBtnGuardar() {
+        return btnGuardar;
     }
 
     public JButton getBtnEliminar() {
-        return btnEliminar;
+        return btnSalir;
     }
     
 
@@ -51,21 +51,9 @@ public class PanelVehiculo extends JPanel {
         tfModelo = new JTextField();
         tfColor = new JTextField();
 
-        btnRegistrar = new JButton("Registrar");
-        btnEliminar = new JButton("Eliminar");
-
-
+        btnGuardar = new JButton("Registrar");
+        btnSalir = new JButton("Eliminar");
     }
-
-    //Cree este metodo para obtener todos los datos del vehiculo de una
-    public Vehiculo obtenerVehiculoActual() {
-    return new Vehiculo(
-        tfMarca.getText(),
-        tfModelo.getText(),
-        tfPatente.getText(),
-        tfColor.getText()
-    );
-}
 
         public void mostrarLblMensajeRegistrar(String mensaje) {
         lblMensajeRegistrar.setText(mensaje);
@@ -78,56 +66,18 @@ public class PanelVehiculo extends JPanel {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.anchor = GridBagConstraints.CENTER;
 
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        add(labelPatente, gbc);
 
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        add(tfPatente, gbc);
-
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        add(labelMarca, gbc);
-
-        gbc.gridx = 1;
-        gbc.gridy = 1;
-        add(tfMarca, gbc);
-
-        gbc.gridx = 0;
-        gbc.gridy = 2;
-        add(labelModelo, gbc);
-
-        gbc.gridx = 1;
-        gbc.gridy = 2;
-        add(tfModelo, gbc);
-
-        gbc.gridx = 0;
-        gbc.gridy = 3;
-        add(labelColor, gbc);
-
-        gbc.gridx = 1;
-        gbc.gridy = 3;
-        add(tfColor, gbc);
-
+        //Necesito que los botones esten posicionado en las esquinas superiores, pero no se como hacerlo
         gbc.gridx = 0;
         gbc.gridy = 4;
-        add(btnRegistrar, gbc);
+        add(btnGuardar, gbc);
 
         gbc.gridx = 1;
         gbc.gridy = 4;
-        add(btnEliminar, gbc);
-        
-        gbc.gridx = 0;
-        gbc.gridy = 5;
-        gbc.gridwidth = 2;
-        add(lblMensajeRegistrar, gbc);
-
-    
+        add(btnSalir, gbc);
         
         setMinimumSize(getPreferredSize());
         setMaximumSize(new Dimension(Integer.MAX_VALUE, 200));
-
 
     }
 

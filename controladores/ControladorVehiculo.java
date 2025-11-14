@@ -29,7 +29,6 @@ public class ControladorVehiculo implements java.awt.event.ActionListener {
             manejarEliminacion();
         }
     }
-
     private void manejarRegistro() {
          vistaVehiculo.mostrarLblMensajeRegistrar(utilidades.Mensajes.VEHICULO_REGISTRADO);
     }
