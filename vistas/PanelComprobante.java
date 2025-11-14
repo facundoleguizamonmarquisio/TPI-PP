@@ -51,8 +51,8 @@ public class PanelComprobante extends JPanel {
         tfModelo = new JTextField();
         tfColor = new JTextField();
 
-        btnGuardar = new JButton("Registrar");
-        btnSalir = new JButton("Eliminar");
+        btnGuardar = new JButton("Guardar");
+        btnSalir = new JButton("Salir");
     }
 
         public void mostrarLblMensajeRegistrar(String mensaje) {
