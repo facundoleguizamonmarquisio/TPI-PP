@@ -55,50 +55,66 @@ public class PanelVehiculo extends JPanel {
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.anchor = GridBagConstraints.CENTER;
 
         gbc.gridx = 0;
         gbc.gridy = 0;
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.anchor = GridBagConstraints.WEST;
         add(labelPatente, gbc);
 
         gbc.gridx = 1;
         gbc.gridy = 0;
-        add(tfPatente, gbc);
-
-        gbc.gridx = 0;
-        gbc.gridy = 1;
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.anchor = GridBagConstraints.WEST;
         add(labelMarca, gbc);
 
-        gbc.gridx = 1;
-        gbc.gridy = 1;
-        add(tfMarca, gbc);
-
-        gbc.gridx = 0;
-        gbc.gridy = 2;
+        gbc.gridx = 2;
+        gbc.gridy = 0;
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.anchor = GridBagConstraints.WEST;
         add(labelModelo, gbc);
 
-        gbc.gridx = 1;
-        gbc.gridy = 2;
-        add(tfModelo, gbc);
-
-        gbc.gridx = 0;
-        gbc.gridy = 3;
+        gbc.gridx = 3;
+        gbc.gridy = 0;
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.anchor = GridBagConstraints.WEST;
         add(labelColor, gbc);
 
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.anchor = GridBagConstraints.CENTER;
+        add(tfPatente, gbc);
+
         gbc.gridx = 1;
-        gbc.gridy = 3;
+        gbc.gridy = 1;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.anchor = GridBagConstraints.CENTER;
+        add(tfMarca, gbc);
+
+        gbc.gridx = 2;
+        gbc.gridy = 1;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.anchor = GridBagConstraints.CENTER;
+        add(tfModelo, gbc);
+
+        gbc.gridx = 3;
+        gbc.gridy = 1;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.anchor = GridBagConstraints.CENTER;
         add(tfColor, gbc);
 
-        gbc.gridx = 0;
-        gbc.gridy = 4;
+        gbc.gridx = 2;
+        gbc.gridy = 2;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.anchor = GridBagConstraints.CENTER;
         add(btnRegistrar, gbc);
 
-        gbc.gridx = 1;
-        gbc.gridy = 4;
+        gbc.gridx = 3;
+        gbc.gridy = 2;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.anchor = GridBagConstraints.CENTER;
         add(btnEliminar, gbc);
 
-        setMinimumSize(getPreferredSize());
-        setMaximumSize(new Dimension(Integer.MAX_VALUE, 200));
     }
 }

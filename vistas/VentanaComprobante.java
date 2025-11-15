@@ -1,68 +1,53 @@
-// package vistas;
+package vistas;
 
-// import controladores.ControladorComprobante;
-// import javax.swing.*;
-// import java.awt.*;
-// import java.awt.event.ActionEvent;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
 
-// public class VentanaComprobante extends JFrame {
+public class VentanaComprobante extends JFrame {
+    private String comprobante;
+    private JButton btnGuardar, btnSalir;
 
-// private Cuenta cuenta;
-// private Vehiculo vehiculo;
+    public VentanaComprobante(String comprobante) {
+        this.comprobante = comprobante;
 
-// private JTextArea areaDatos;
-// private JButton btnGenerarComprobante;
+        setTitle("Registro de vehículo");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-// public VentanaComprobante(Cuenta cuenta, Vehiculo vehiculo) {
-// this.cuenta = cuenta;
-// this.vehiculo = vehiculo;
+        inicializarComponentes();
 
-// setTitle("Registro de Vehículo");
-// setSize(400, 400);
-// setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-// setLocationRelativeTo(null);
+        configurarLayout();
 
-// inicializarComponentes();
-// setVisible(true);
-// }
+        pack();
+        setLocationRelativeTo(null);
+    }
 
-// private void inicializarComponentes() {
-// areaDatos = new JTextArea();
-// areaDatos.setEditable(false);
-// areaDatos.setFont(new Font("Monospaced", Font.PLAIN, 12));
+    // Métodos
+    private void inicializarComponentes() {
+        btnGuardar = new JButton("Guardar");
+        btnSalir = new JButton("Salir");
+    }
 
-// mostrarDatos();
+    private void configurarLayout() {
+        setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(5, 5, 5, 5);
 
-// btnGenerarComprobante = new JButton("Generar Comprobante");
-// btnGenerarComprobante.addActionListener((ActionEvent e) -> {
-// String comprobante = ControladorComprobante.generarComprobante(cuenta,
-// vehiculo);
-// JOptionPane.showMessageDialog(
-// VentanaComprobante.this,
-// comprobante,
-// "Comprobante Generado",
-// JOptionPane.INFORMATION_MESSAGE);
-// });
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridwidth = 1; // Ocupa 1 columna
+        gbc.weightx = 0; // No se expande en x
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.anchor = GridBagConstraints.WEST;
+        add(btnGuardar, gbc);
 
-// add(new JScrollPane(areaDatos), BorderLayout.CENTER);
-// add(btnGenerarComprobante, BorderLayout.SOUTH);
-// }
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.gridwidth = 1;
+        gbc.weightx = 0;
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.anchor = GridBagConstraints.WEST;
+        add(btnGuardar, gbc);
+    }
 
-// private void mostrarDatos() {
-// String texto = String.format(
-// "=== DATOS DEL cuenta ===\nNombre: %s\nPatente: %s\nTeléfono: %s\n\n=== DATOS
-// DEL VEHÍCULO ===\nMarca: %s\nModelo: %s\nPlaca: %s\nFecha Registro: %s\nHora
-// Registro: %s",
-// cuenta.getUsuario().getNombre(),
-// cuenta.getUsuario().getDocumento(),
-// cuenta.getUsuario().getTelefono(),
-// vehiculo.getMarca(),
-// vehiculo.getModelo(),
-// vehiculo.getPatente(),
-// vehiculo.getFechaRegistro(),
-// vehiculo.getHoraRegistro());
-
-// areaDatos.setText(texto);
-// }
-
-// }
+}

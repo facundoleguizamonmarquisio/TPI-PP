@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 
 public class ControladorPrincipal implements CuentaVerificadaListener {
     private VentanaPrincipal vistaPrincipal;
+    private PanelBuscarCuenta BuscarCuenta;
     private PanelCuenta vistaCuenta;
     private PanelVehiculo vistaVehiculo;
     private ControladorCuenta ctrlCuenta;
@@ -29,22 +30,27 @@ public class ControladorPrincipal implements CuentaVerificadaListener {
     public void inicializarAplicacion() {
         vistaPrincipal = new VentanaPrincipal();
 
+        inicializarBuscarCuenta();
         inicializarVistaCuenta();
         inicializarVistaVehiculo();
 
-        ctrlCuenta = new ControladorCuenta(vistaCuenta, cuentas);
+        ctrlCuenta = new ControladorCuenta(BuscarCuenta, cuentas);
         ctrlCuenta.setCuentaVerificadaListener(this);
         ctrlVehiculo = new ControladorVehiculo(vistaVehiculo);
 
-        vistaPrincipal.agregarPanelCuenta(vistaCuenta);
+        vistaPrincipal.agregarPanel(BuscarCuenta);
 
         vistaPrincipal.setVisible(true);
     }
 
+    private void inicializarBuscarCuenta() {
+        List<String> legajoUsuarios = usuarios.stream().map(n -> String.valueOf(n.getLegajo())).toList();
+        BuscarCuenta = new PanelBuscarCuenta(legajoUsuarios);
+        BuscarCuenta.setCbUsuarios();
+    }
+
     private void inicializarVistaCuenta() {
-        List<String> documentoUsuarios = usuarios.stream().map(n -> n.getDocumento()).toList();
-        vistaCuenta = new PanelCuenta(documentoUsuarios);
-        vistaCuenta.setCbUsuarios();
+        vistaCuenta = new PanelCuenta();
     }
 
     private void inicializarVistaVehiculo() {
@@ -54,7 +60,8 @@ public class ControladorPrincipal implements CuentaVerificadaListener {
     @Override
     public void onCuentaEncontrada(Cuenta cuentaSeleccionada) {
         this.cuentaSeleccionada = cuentaSeleccionada;
-        vistaPrincipal.agregarPanelVehiculo(vistaVehiculo);
+        vistaPrincipal.agregarPanel(vistaCuenta);
+        vistaPrincipal.agregarPanel(vistaVehiculo);
         System.out.println("Tiene cuenta");
     }
 

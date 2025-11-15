@@ -11,11 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ControladorCuenta implements ActionListener {
-    private PanelCuenta vistaCuenta;
+    private PanelBuscarCuenta vistaCuenta;
     private ArrayList<Cuenta> cuentas;
     private CuentaVerificadaListener cvlistener;
 
-    public ControladorCuenta(PanelCuenta vistaCuenta, ArrayList<Cuenta> cuentas) {
+    public ControladorCuenta(PanelBuscarCuenta vistaCuenta, ArrayList<Cuenta> cuentas) {
         this.vistaCuenta = vistaCuenta;
         this.vistaCuenta.getBtnVerificar().addActionListener(this);
 
@@ -55,12 +55,12 @@ public class ControladorCuenta implements ActionListener {
         }
     }
 
-    private Cuenta buscarCuenta(String documentoUsuario) {
+    private Cuenta buscarCuenta(String legajoUsuario) {
         Cuenta cuentaSeleccionada = null;
 
         for (int i = 0; i < cuentas.size(); i++) {
             UsuarioUTN usuarioCuenta = cuentas.get(i).getUsuario();
-            if (documentoUsuario == usuarioCuenta.getDocumento()) {
+            if (legajoUsuario.equals(String.valueOf(usuarioCuenta.getLegajo()))) {
                 cuentaSeleccionada = cuentas.get(i);
             }
         }
