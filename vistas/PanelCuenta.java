@@ -16,7 +16,9 @@ public class PanelCuenta extends JPanel {
     private JPanel panelDatosCuenta, panelDatosUsuario, panelDatosVehiculos;
     private JLabel labelNroCuenta, labelTipoCuenta, labelEstado, labelNombreUser,
             labelApellidoUser, labelDocumentoUser, labelPatente, labelMarca, labelModelo, labelColor;
-    private List<String> legajoUsuarios;
+    private JLabel labelDatoNroCuenta, labelDatoTipoCuenta, labelDatoEstado, labelDatoNombreUser,
+            labelDatoApellidoUser, labelDatoDocumentoUser, labelDatoPatente, labelDatoMarca, labelDatoModelo,
+            labelDatoColor;
 
     public PanelCuenta() {
         setBorder(BorderFactory.createTitledBorder("Cuenta"));
@@ -27,24 +29,68 @@ public class PanelCuenta extends JPanel {
     }
 
     // Setter
+    public void setLabelDatoNroCuenta(String nroCuenta) {
+        labelDatoNroCuenta.setText(nroCuenta);
+    }
 
-    // Getter
+    public void setLabelDatoTipoCuenta(String tipoCuenta) {
+        labelDatoTipoCuenta.setText(tipoCuenta);
+    }
+
+    public void setLabelDatoEstado(String estado) {
+        labelDatoEstado.setText(estado);
+    }
+
+    public void setLabelDatoNombreUser(String nombreUsuario) {
+        labelDatoNombreUser.setText(nombreUsuario);
+    }
+
+    public void setLabelDatoApellidoUser(String apellidoUsuario) {
+        labelDatoApellidoUser.setText(apellidoUsuario);
+    }
+
+    public void setLabelDatoDocumentoUser(String documentoUsuario) {
+        labelDatoDocumentoUser.setText(documentoUsuario);
+    }
 
     // Métodos
     private void inicializarComponentes() {
 
         labelNroCuenta = new JLabel("N° de cuenta");
+        labelNroCuenta.setForeground(new Color(114, 114, 114));
         labelTipoCuenta = new JLabel("Tipo de cuenta");
+        labelTipoCuenta.setForeground(new Color(114, 114, 114));
         labelEstado = new JLabel("Estado");
+        labelEstado.setForeground(new Color(114, 114, 114));
 
         labelNombreUser = new JLabel("Nombre");
+        labelNombreUser.setForeground(new Color(114, 114, 114));
         labelApellidoUser = new JLabel("Apellido");
+        labelApellidoUser.setForeground(new Color(114, 114, 114));
         labelDocumentoUser = new JLabel("Documento");
+        labelDocumentoUser.setForeground(new Color(114, 114, 114));
 
         labelPatente = new JLabel("Patente");
+        labelPatente.setForeground(new Color(114, 114, 114));
         labelMarca = new JLabel("Marca");
+        labelMarca.setForeground(new Color(114, 114, 114));
         labelModelo = new JLabel("Modelo");
+        labelModelo.setForeground(new Color(114, 114, 114));
         labelColor = new JLabel("Color");
+        labelColor.setForeground(new Color(114, 114, 114));
+
+        labelDatoNroCuenta = new JLabel();
+        labelDatoTipoCuenta = new JLabel();
+        labelDatoEstado = new JLabel();
+
+        labelDatoNombreUser = new JLabel();
+        labelDatoApellidoUser = new JLabel();
+        labelDatoDocumentoUser = new JLabel();
+
+        labelDatoPatente = new JLabel();
+        labelDatoMarca = new JLabel();
+        labelDatoModelo = new JLabel();
+        labelDatoColor = new JLabel();
 
         panelDatosCuenta = new JPanel();
         panelDatosCuenta.setBorder(BorderFactory.createTitledBorder("Datos de la cuenta"));
@@ -111,7 +157,7 @@ public class PanelCuenta extends JPanel {
         gbc.weightx = 0;
         gbc.fill = GridBagConstraints.NONE;
         gbc.anchor = GridBagConstraints.WEST;
-        panelDatosCuenta.add(labelTipoCuenta, gbc);
+        panelDatosCuenta.add(labelDatoNroCuenta, gbc);
 
         gbc.gridx = 0;
         gbc.gridy = 2;
@@ -119,7 +165,32 @@ public class PanelCuenta extends JPanel {
         gbc.weightx = 0;
         gbc.fill = GridBagConstraints.NONE;
         gbc.anchor = GridBagConstraints.WEST;
+        panelDatosCuenta.add(labelTipoCuenta, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        gbc.gridwidth = 1;
+        gbc.weightx = 0;
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.anchor = GridBagConstraints.WEST;
+        panelDatosCuenta.add(labelDatoTipoCuenta, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 4;
+        gbc.gridwidth = 1;
+        gbc.weightx = 0;
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.anchor = GridBagConstraints.WEST;
         panelDatosCuenta.add(labelEstado, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 5;
+        gbc.gridwidth = 1;
+        gbc.weightx = 0;
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.anchor = GridBagConstraints.WEST;
+        panelDatosCuenta.add(labelDatoEstado, gbc);
+
     }
 
     private void configurarLayoutUsuario() {
@@ -140,7 +211,7 @@ public class PanelCuenta extends JPanel {
         gbc.weightx = 0;
         gbc.fill = GridBagConstraints.NONE;
         gbc.anchor = GridBagConstraints.WEST;
-        panelDatosUsuario.add(labelApellidoUser, gbc);
+        panelDatosUsuario.add(labelDatoNombreUser, gbc);
 
         gbc.gridx = 0;
         gbc.gridy = 2;
@@ -148,7 +219,31 @@ public class PanelCuenta extends JPanel {
         gbc.weightx = 0;
         gbc.fill = GridBagConstraints.NONE;
         gbc.anchor = GridBagConstraints.WEST;
+        panelDatosUsuario.add(labelApellidoUser, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        gbc.gridwidth = 1;
+        gbc.weightx = 0;
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.anchor = GridBagConstraints.WEST;
+        panelDatosUsuario.add(labelDatoApellidoUser, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 4;
+        gbc.gridwidth = 1;
+        gbc.weightx = 0;
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.anchor = GridBagConstraints.WEST;
         panelDatosUsuario.add(labelDocumentoUser, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 5;
+        gbc.gridwidth = 1;
+        gbc.weightx = 0;
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.anchor = GridBagConstraints.WEST;
+        panelDatosUsuario.add(labelDatoDocumentoUser, gbc);
     }
 
     private void configurarLayoutVehiculos() {

@@ -19,7 +19,7 @@ public class ControladorPrincipal implements CuentaVerificadaListener {
     private PanelCuenta vistaCuenta;
     private PanelVehiculo vistaVehiculo;
     private VentanaEmergente vistaMensaje;
-    private ControladorCuenta ctrlCuenta;
+    private ControladorBuscarCuenta ctrlCuenta;
     private ControladorVehiculo ctrlVehiculo;
     private Cuenta cuentaSeleccionada;
 
@@ -32,43 +32,56 @@ public class ControladorPrincipal implements CuentaVerificadaListener {
     public void inicializarAplicacion() {
         vistaPrincipal = new VentanaPrincipal();
 
-        inicializarBuscarCuenta();
-        inicializarVistaCuenta();
-        inicializarVistaVehiculo();
-
-        ctrlCuenta = new ControladorCuenta(BuscarCuenta, cuentas);
-        ctrlCuenta.setCuentaVerificadaListener(this);
-        ctrlVehiculo = new ControladorVehiculo(vistaVehiculo);
-
-        vistaPrincipal.agregarPanel(BuscarCuenta);
+        inicializarVistaBuscarCuenta();
 
         vistaPrincipal.setVisible(true);
     }
 
-    private void inicializarBuscarCuenta() {
+    private void inicializarVistaBuscarCuenta() {
         List<String> legajoUsuarios = usuarios.stream().map(n -> String.valueOf(n.getLegajo())).toList();
         BuscarCuenta = new PanelBuscarCuenta(legajoUsuarios);
         BuscarCuenta.setCbUsuarios();
+
+        ctrlCuenta = new ControladorBuscarCuenta(BuscarCuenta, cuentas);
+        ctrlCuenta.setCuentaVerificadaListener(this);
+
+        vistaPrincipal.agregarPanel(BuscarCuenta);
+
     }
 
     private void inicializarVistaCuenta() {
         vistaCuenta = new PanelCuenta();
+        vistaCuenta.setLabelDatoNroCuenta(String.valueOf(cuentaSeleccionada.getNumeroDeCuenta()));
+        vistaCuenta.setLabelDatoTipoCuenta(String.valueOf(cuentaSeleccionada.getTipoDeCuenta().getNombre()));
+        vistaCuenta.setLabelDatoEstado(String.valueOf(cuentaSeleccionada.getEstadoCuenta()));
+        vistaCuenta.setLabelDatoNombreUser(String.valueOf(cuentaSeleccionada.getUsuario().getNombre()));
+        vistaCuenta.setLabelDatoApellidoUser(String.valueOf(cuentaSeleccionada.getUsuario().getApellido()));
+        vistaCuenta.setLabelDatoDocumentoUser(String.valueOf(cuentaSeleccionada.getUsuario().getDocumento()));
+
+        vistaPrincipal.agregarPanel(vistaCuenta);
     }
 
     private void inicializarVistaVehiculo() {
         vistaVehiculo = new PanelVehiculo();
+        ctrlVehiculo = new ControladorVehiculo(vistaVehiculo);
+        vistaPrincipal.agregarPanel(vistaVehiculo);
+    }
+
+    private void inicializarVistaMensaje() {
+        vistaMensaje = new VentanaEmergente(Mensajes.CUENTA_NO_ENCONTRADA, "Error");
+        vistaMensaje.setVisible(true);
     }
 
     @Override
     public void onCuentaEncontrada(Cuenta cuentaSeleccionada) {
         this.cuentaSeleccionada = cuentaSeleccionada;
-        vistaPrincipal.agregarPanel(vistaCuenta);
-        vistaPrincipal.agregarPanel(vistaVehiculo);
+
+        inicializarVistaCuenta();
+        inicializarVistaVehiculo();
     }
 
     @Override
     public void onCuentaNoEncontrada() {
-        vistaMensaje = new VentanaEmergente(Mensajes.CUENTA_NO_ENCONTRADA, "Error");
-        vistaMensaje.setVisible(true);
+        inicializarVistaMensaje();
     }
 }

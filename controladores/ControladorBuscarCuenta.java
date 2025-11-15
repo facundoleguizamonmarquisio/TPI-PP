@@ -10,12 +10,12 @@ import java.nio.channels.Pipe.SourceChannel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ControladorCuenta implements ActionListener {
+public class ControladorBuscarCuenta implements ActionListener {
     private PanelBuscarCuenta vistaCuenta;
     private ArrayList<Cuenta> cuentas;
     private CuentaVerificadaListener cvlistener;
 
-    public ControladorCuenta(PanelBuscarCuenta vistaCuenta, ArrayList<Cuenta> cuentas) {
+    public ControladorBuscarCuenta(PanelBuscarCuenta vistaCuenta, ArrayList<Cuenta> cuentas) {
         this.vistaCuenta = vistaCuenta;
         this.vistaCuenta.getBtnVerificar().addActionListener(this);
 

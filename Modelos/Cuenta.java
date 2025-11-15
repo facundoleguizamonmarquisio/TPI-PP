@@ -55,7 +55,7 @@ public class Cuenta {
         return this.vehiculos;
     }
 
-    public boolean getestadoCuenta() {
+    public boolean getEstadoCuenta() {
         return this.estadoCuenta;
     }
 
