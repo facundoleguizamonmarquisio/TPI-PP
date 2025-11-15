@@ -27,7 +27,7 @@ public class VentanaEmergente extends JFrame {
 
     // Métodos
     private void inicializarComponentes() {
-        aviso = new JTextArea("Aviso");
+        aviso = new JTextArea(mensaje);
         aviso.setEditable(false);
 
     }

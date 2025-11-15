@@ -2,6 +2,7 @@ package controladores;
 
 import vistas.*;
 import modelos.*;
+import utilidades.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,14 +12,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ControladorPrincipal implements CuentaVerificadaListener {
+    private ArrayList<UsuarioUTN> usuarios;
+    private ArrayList<Cuenta> cuentas;
     private VentanaPrincipal vistaPrincipal;
     private PanelBuscarCuenta BuscarCuenta;
     private PanelCuenta vistaCuenta;
     private PanelVehiculo vistaVehiculo;
+    private VentanaEmergente vistaMensaje;
     private ControladorCuenta ctrlCuenta;
     private ControladorVehiculo ctrlVehiculo;
-    private ArrayList<UsuarioUTN> usuarios;
-    private ArrayList<Cuenta> cuentas;
     private Cuenta cuentaSeleccionada;
 
     public ControladorPrincipal(ArrayList<UsuarioUTN> usuarios, ArrayList<Cuenta> cuentas) {
@@ -62,11 +64,11 @@ public class ControladorPrincipal implements CuentaVerificadaListener {
         this.cuentaSeleccionada = cuentaSeleccionada;
         vistaPrincipal.agregarPanel(vistaCuenta);
         vistaPrincipal.agregarPanel(vistaVehiculo);
-        System.out.println("Tiene cuenta");
     }
 
     @Override
     public void onCuentaNoEncontrada() {
-        System.out.println("NO tiene cuenta");
+        vistaMensaje = new VentanaEmergente(Mensajes.CUENTA_NO_ENCONTRADA, "Error");
+        vistaMensaje.setVisible(true);
     }
 }
