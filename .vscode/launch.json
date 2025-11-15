@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Run TestJPL",
+            "request": "launch",
+            "mainClass": "prolog.TestJPL",
+            "cwd": "${workspaceFolder}",
+            "vmArgs": "-Djava.library.path=C:\\Users\\Lorena\\OneDrive\\Documentos\\GitHub\\TPI-PP\\lib --enable-native-access=ALL-UNNAMED",
+            "classPaths": [
+                "${workspaceFolder}\\lib\\jpl.jar",
+                "${workspaceFolder}\\bin"
+            ]
+        }
+    ]
+}
