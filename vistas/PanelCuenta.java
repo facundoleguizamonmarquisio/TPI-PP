@@ -154,7 +154,6 @@ public class PanelCuenta extends JPanel {
     private void configurarLayoutVehiculos() {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
-        gbc.fill = GridBagConstraints.HORIZONTAL;
 
         gbc.gridx = 0;
         gbc.gridy = 0;
