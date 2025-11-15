@@ -21,6 +21,7 @@ public class VentanaPrincipal extends JFrame {
         configurarLayout();
 
         pack();
+
         setLocationRelativeTo(null);
     }
 
