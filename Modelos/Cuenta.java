@@ -55,7 +55,7 @@ public class Cuenta {
         return this.vehiculos;
     }
 
-    public boolean getestadoCuenta() {
+    public boolean getEstadoCuenta() {
         return this.estadoCuenta;
     }
 
@@ -68,21 +68,21 @@ public class Cuenta {
         this.vehiculos.remove(vehiculo);
     }
 
-    public void imprimirComprobantes() {
-        System.out.println("Usuario: " + usuario.getNombre() + " " + usuario.getApellido());
-        System.out.println("DNI:     " + usuario.getDocumento());
-
-        for (modelos.Vehiculo vehiculo : this.vehiculos) {
-            System.out.println("\n--- Datos del Vehículo ---");
-            System.out.println("Patente: " + vehiculo.getPatente());
-            System.out.println("Marca:   " + vehiculo.getMarca());
-            System.out.println("Modelo:  " + vehiculo.getModelo());
-            System.out.println("Color:   " + vehiculo.getColor());
-
-            // FECHA Y HORA (Vienen del Vehiculo)
-            System.out.println("\nRegistro: " + vehiculo.getFechaRegistro() + " a las " + vehiculo.getHoraRegistro());
-            System.out.println("-------------------------------------------------------");
-        }
+    public StringBuilder generarComprobante(Vehiculo vehiculo) {
+        StringBuilder mensajeComprobante = new StringBuilder();
+        mensajeComprobante.append("===== COMPROBANTE DE REGISTRO DE VEHÍCULO =====\n\n");
+        mensajeComprobante.append("=== DATOS DEL cuenta ===\n");
+        mensajeComprobante.append("Nombre: ").append(getUsuario().getNombre()).append("\n");
+        mensajeComprobante.append("Cédula:").append(getUsuario().getDocumento()).append("\n");
+        mensajeComprobante.append("Teléfono:").append(getUsuario().getTelefono()).append("\n\n");
+        mensajeComprobante.append("=== DATOS DEL VEHÍCULO ===\n");
+        mensajeComprobante.append("Marca: ").append(vehiculo.getMarca()).append("\n");
+        mensajeComprobante.append("Modelo: ").append(vehiculo.getModelo()).append("\n");
+        mensajeComprobante.append("Patente: ").append(vehiculo.getPatente()).append("\n");
+        mensajeComprobante.append("Fecha de registro:").append(vehiculo.getFechaRegistro()).append("\n");
+        mensajeComprobante.append("Hora de registro:").append(vehiculo.getHoraRegistro()).append("\n");
+        mensajeComprobante.append("=============================================\n");
+        return mensajeComprobante;
     }
 
     // ToString
