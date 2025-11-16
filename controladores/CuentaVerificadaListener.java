@@ -2,7 +2,7 @@ package controladores;
 
 import modelos.*;
 
-public interface BuscarCuentaListener {
+public interface CuentaVerificadaListener {
     void onCuentaEncontrada(Cuenta cuenta);
 
     void onCuentaNoEncontrada();

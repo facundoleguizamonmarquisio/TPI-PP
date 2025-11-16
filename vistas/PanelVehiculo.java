@@ -20,7 +20,6 @@ public class PanelVehiculo extends JPanel {
     private JLabel lblMensajeRegistrar;
 
     public PanelVehiculo() {
-
         setBorder(BorderFactory.createTitledBorder("Gestión de vehículos"));
 
         inicializarComponentes();
@@ -29,22 +28,6 @@ public class PanelVehiculo extends JPanel {
     }
 
     // Getter
-    public JTextField getTfPatente() {
-        return tfPatente;
-    }
-
-    public JTextField getTfMarca() {
-        return tfMarca;
-    }
-
-    public JTextField getTfModelo() {
-        return tfModelo;
-    }
-
-    public JTextField getTfColor() {
-        return tfColor;
-    }
-
     public JButton getBtnRegistrar() {
         return btnRegistrar;
     }
@@ -81,65 +64,47 @@ public class PanelVehiculo extends JPanel {
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.anchor = GridBagConstraints.CENTER;
 
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.fill = GridBagConstraints.NONE;
-        gbc.anchor = GridBagConstraints.WEST;
         add(labelPatente, gbc);
 
         gbc.gridx = 1;
         gbc.gridy = 0;
-        gbc.fill = GridBagConstraints.NONE;
-        gbc.anchor = GridBagConstraints.WEST;
-        add(labelMarca, gbc);
-
-        gbc.gridx = 2;
-        gbc.gridy = 0;
-        gbc.fill = GridBagConstraints.NONE;
-        gbc.anchor = GridBagConstraints.WEST;
-        add(labelModelo, gbc);
-
-        gbc.gridx = 3;
-        gbc.gridy = 0;
-        gbc.fill = GridBagConstraints.NONE;
-        gbc.anchor = GridBagConstraints.WEST;
-        add(labelColor, gbc);
+        add(tfPatente, gbc);
 
         gbc.gridx = 0;
         gbc.gridy = 1;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.anchor = GridBagConstraints.CENTER;
-        add(tfPatente, gbc);
+        add(labelMarca, gbc);
 
         gbc.gridx = 1;
         gbc.gridy = 1;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.anchor = GridBagConstraints.CENTER;
         add(tfMarca, gbc);
 
-        gbc.gridx = 2;
-        gbc.gridy = 1;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        add(labelModelo, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 2;
         add(tfModelo, gbc);
 
-        gbc.gridx = 3;
-        gbc.gridy = 1;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        add(labelColor, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 3;
         add(tfColor, gbc);
 
-        gbc.gridx = 2;
-        gbc.gridy = 2;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.gridx = 0;
+        gbc.gridy = 4;
         add(btnRegistrar, gbc);
 
-        gbc.gridx = 3;
-        gbc.gridy = 2;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.gridx = 1;
+        gbc.gridy = 4;
         add(btnEliminar, gbc);
         
         gbc.gridx = 0;
@@ -147,13 +112,10 @@ public class PanelVehiculo extends JPanel {
         gbc.gridwidth = 2;
         add(lblMensajeRegistrar, gbc);
 
-<<<<<<< HEAD
         setMinimumSize(getPreferredSize());
         setMaximumSize(new Dimension(Integer.MAX_VALUE, 200));
 
 
-=======
->>>>>>> testing
     }
 
 

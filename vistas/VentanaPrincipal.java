@@ -1,5 +1,7 @@
 package vistas;
 
+import modelos.*;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,19 +13,22 @@ import java.util.ArrayList;
 
 public class VentanaPrincipal extends JFrame {
     private JPanel panelContenido;
+    private JLabel labelUsuario, labelMarca, labelModelo, labelPatente, labelColor;
+    private JComboBox<UsuarioUTN> cbUsuarios;
+    private JTextField tfMarca, tfModelo, tfPatente, tfColor;
+    private JButton btnVerificar, btnRegistrar, btnEliminar, btnImprimir;
 
     public VentanaPrincipal() {
         setTitle("Registro de vehículo");
+        setSize(550, 400);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         inicializarComponentes();
 
         configurarLayout();
-
-        pack();
-
-        setLocationRelativeTo(null);
     }
+
+    // Getter
 
     // Métodos
     private void inicializarComponentes() {
@@ -38,11 +43,17 @@ public class VentanaPrincipal extends JFrame {
         add(panelContenido, BorderLayout.CENTER);
     }
 
-    public void agregarPanel(JPanel panel) {
-        panelContenido.add(panel);
+    public void agregarPanelCuenta(PanelCuenta panelCuenta) {
+        panelContenido.add(panelCuenta);
         panelContenido.revalidate(); // Actualiza layout
         panelContenido.repaint(); // Redibuja interfaz
-        setMaximumSize(new Dimension(620, Integer.MAX_VALUE));
-        pack();
+
+    }
+
+    public void agregarPanelVehiculo(PanelVehiculo panelVehiculo) {
+        panelContenido.add(panelVehiculo);
+        panelContenido.revalidate(); // Actualiza layout
+        panelContenido.repaint(); // Redibuja interfaz
+
     }
 }
