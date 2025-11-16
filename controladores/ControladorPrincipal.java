@@ -11,9 +11,10 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ControladorPrincipal implements CuentaVerificadaListener {
+public class ControladorPrincipal implements BuscarCuentaListener, GestionarVehiculoListener {
     private ArrayList<UsuarioUTN> usuarios;
     private ArrayList<Cuenta> cuentas;
+    private ArrayList<Vehiculo> vehiculos;
     private VentanaPrincipal vistaPrincipal;
     private PanelBuscarCuenta BuscarCuenta;
     private PanelCuenta vistaCuenta;
@@ -22,10 +23,13 @@ public class ControladorPrincipal implements CuentaVerificadaListener {
     private ControladorBuscarCuenta ctrlCuenta;
     private ControladorVehiculo ctrlVehiculo;
     private Cuenta cuentaSeleccionada;
+    private Vehiculo vehiculoSeleccionado;
 
-    public ControladorPrincipal(ArrayList<UsuarioUTN> usuarios, ArrayList<Cuenta> cuentas) {
+    public ControladorPrincipal(ArrayList<UsuarioUTN> usuarios, ArrayList<Cuenta> cuentas,
+            ArrayList<Vehiculo> vehiculos) {
         this.usuarios = usuarios;
         this.cuentas = cuentas;
+        this.vehiculos = vehiculos;
     }
 
     // Métodos
@@ -43,7 +47,7 @@ public class ControladorPrincipal implements CuentaVerificadaListener {
         BuscarCuenta.setCbUsuarios();
 
         ctrlCuenta = new ControladorBuscarCuenta(BuscarCuenta, cuentas);
-        ctrlCuenta.setCuentaVerificadaListener(this);
+        ctrlCuenta.setCuentaBuscadaListener(this);
 
         vistaPrincipal.agregarPanel(BuscarCuenta);
 
@@ -63,12 +67,15 @@ public class ControladorPrincipal implements CuentaVerificadaListener {
 
     private void inicializarVistaVehiculo() {
         vistaVehiculo = new PanelVehiculo();
-        ctrlVehiculo = new ControladorVehiculo(vistaVehiculo);
+
+        ctrlVehiculo = new ControladorVehiculo(vistaVehiculo, cuentaSeleccionada);
+        ctrlVehiculo.setVehiculoBuscadoListener(this);
+
         vistaPrincipal.agregarPanel(vistaVehiculo);
     }
 
-    private void inicializarVistaMensaje() {
-        vistaMensaje = new VentanaEmergente(Mensajes.CUENTA_NO_ENCONTRADA, "Error");
+    private void inicializarVistaMensaje(String mensaje, String tipo) {
+        vistaMensaje = new VentanaEmergente(mensaje, tipo);
         vistaMensaje.setVisible(true);
     }
 
@@ -82,6 +89,31 @@ public class ControladorPrincipal implements CuentaVerificadaListener {
 
     @Override
     public void onCuentaNoEncontrada() {
-        inicializarVistaMensaje();
+        inicializarVistaMensaje(Mensajes.CUENTA_NO_ENCONTRADA, "Error");
+    }
+
+    @Override
+    public void onVehiculoAsociado() {
+        inicializarVistaMensaje(Mensajes.VEHICULO_YA_ASOCIADO, "Error");
+    }
+
+    @Override
+    public void onVehiculoNoEncontrado() {
+        inicializarVistaMensaje(Mensajes.VEHICULO_NO_ENCONTRAD0, "Error");
+    }
+
+    @Override
+    public void onVehiculoRegistrado() {
+        inicializarVistaMensaje(Mensajes.VEHICULO_REGISTRADO, "Éxito");
+    }
+
+    @Override
+    public void onVehiculoIncompleto() {
+        inicializarVistaMensaje(Mensajes.VEHICULO_INCOMPLETO, "Error");
+    }
+
+    @Override
+    public void onVehiculoEliminado() {
+        inicializarVistaMensaje(Mensajes.VEHICULO_ELIMINADO, "Éxito");
     }
 }

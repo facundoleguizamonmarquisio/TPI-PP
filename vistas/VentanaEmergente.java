@@ -15,7 +15,7 @@ public class VentanaEmergente extends JFrame {
         this.tipo = tipo;
 
         setTitle(tipo);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         if (tipo.equals("Error")) {
             getContentPane().setBackground(new Color(255, 181, 181));

@@ -27,6 +27,22 @@ public class PanelVehiculo extends JPanel {
     }
 
     // Getter
+    public JTextField getTfPatente() {
+        return tfPatente;
+    }
+
+    public JTextField getTfMarca() {
+        return tfMarca;
+    }
+
+    public JTextField getTfModelo() {
+        return tfModelo;
+    }
+
+    public JTextField getTfColor() {
+        return tfColor;
+    }
+
     public JButton getBtnRegistrar() {
         return btnRegistrar;
     }

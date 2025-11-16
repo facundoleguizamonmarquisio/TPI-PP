@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ControladorBuscarCuenta implements ActionListener {
-    private PanelBuscarCuenta vistaCuenta;
     private ArrayList<Cuenta> cuentas;
-    private CuentaVerificadaListener cvlistener;
+    private PanelBuscarCuenta vistaCuenta;
+    private BuscarCuentaListener cuentaListener;
 
     public ControladorBuscarCuenta(PanelBuscarCuenta vistaCuenta, ArrayList<Cuenta> cuentas) {
         this.vistaCuenta = vistaCuenta;
@@ -23,8 +23,8 @@ public class ControladorBuscarCuenta implements ActionListener {
     }
 
     // Setter
-    public void setCuentaVerificadaListener(CuentaVerificadaListener cvlistener) {
-        this.cvlistener = cvlistener;
+    public void setCuentaBuscadaListener(BuscarCuentaListener cuentaListener) {
+        this.cuentaListener = cuentaListener;
     }
 
     // Métodos
@@ -43,12 +43,12 @@ public class ControladorBuscarCuenta implements ActionListener {
         Cuenta cuentaSeleccionada = buscarCuenta(documentoUsuario);
 
         if (cuentaSeleccionada != null) {
-            if (cvlistener != null) {
-                cvlistener.onCuentaEncontrada(cuentaSeleccionada);
+            if (cuentaListener != null) {
+                cuentaListener.onCuentaEncontrada(cuentaSeleccionada);
             }
         } else {
-            if (cvlistener != null) {
-                cvlistener.onCuentaNoEncontrada();
+            if (cuentaListener != null) {
+                cuentaListener.onCuentaNoEncontrada();
 
             }
 
@@ -56,14 +56,14 @@ public class ControladorBuscarCuenta implements ActionListener {
     }
 
     private Cuenta buscarCuenta(String legajoUsuario) {
-        Cuenta cuentaSeleccionada = null;
+        Cuenta cuentaEncontrada = null;
 
         for (int i = 0; i < cuentas.size(); i++) {
             UsuarioUTN usuarioCuenta = cuentas.get(i).getUsuario();
             if (legajoUsuario.equals(String.valueOf(usuarioCuenta.getLegajo()))) {
-                cuentaSeleccionada = cuentas.get(i);
+                cuentaEncontrada = cuentas.get(i);
             }
         }
-        return cuentaSeleccionada;
+        return cuentaEncontrada;
     }
 }

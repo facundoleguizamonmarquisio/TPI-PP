@@ -20,7 +20,7 @@ public class Main {
             System.out.println("----------------------");
         }
 
-        ControladorPrincipal ctrlVentanaPrincipal = new ControladorPrincipal(usuarios, cuentas);
+        ControladorPrincipal ctrlVentanaPrincipal = new ControladorPrincipal(usuarios, cuentas, vehiculos);
         ctrlVentanaPrincipal.inicializarAplicacion();
     }
 
