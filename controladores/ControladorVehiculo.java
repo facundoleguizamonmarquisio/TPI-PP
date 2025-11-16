@@ -54,9 +54,10 @@ public class ControladorVehiculo implements ActionListener {
                     vehiculoListener.onVehiculoAsociado();
                 }
             } else { // Vehículo aún inexistente
-                cuentaSeleccionada.asociarVehiculo(new Vehiculo(patente, marca, modelo, color));
+                Vehiculo vehiculoRegistrado = new Vehiculo(marca, modelo, patente, color);
+                cuentaSeleccionada.asociarVehiculo(vehiculoRegistrado);
                 if (vehiculoListener != null) {
-                    vehiculoListener.onVehiculoRegistrado(vehiculoIngresado);
+                    vehiculoListener.onVehiculoRegistrado(vehiculoRegistrado);
                 }
             }
         } else {

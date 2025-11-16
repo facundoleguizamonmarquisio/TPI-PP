@@ -9,10 +9,12 @@ public class VentanaComprobante extends JFrame {
     private JButton btnGuardar, btnSalir;
 
     public VentanaComprobante(StringBuilder comprobante) {
+        // ventana.dispose(); Para poder cerrar la ventana
+
         this.comprobante = comprobante;
 
         setTitle("Comprobante");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 
         inicializarComponentes();
 

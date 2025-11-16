@@ -23,7 +23,7 @@ public class ControladorPrincipal implements BuscarCuentaListener, GestionarVehi
     private ControladorBuscarCuenta ctrlCuenta;
     private ControladorVehiculo ctrlVehiculo;
     private Cuenta cuentaSeleccionada;
-    private Vehiculo vehiculoSeleccionado;
+    private Vehiculo vehiculoRegistrado;
 
     public ControladorPrincipal(ArrayList<UsuarioUTN> usuarios, ArrayList<Cuenta> cuentas,
             ArrayList<Vehiculo> vehiculos) {
@@ -79,7 +79,7 @@ public class ControladorPrincipal implements BuscarCuentaListener, GestionarVehi
     }
 
     private void inicializarVistaComprobante() {
-        vistaComprobante = new VentanaComprobante(cuentaSeleccionada.generarComprobante(vehiculoSeleccionado));
+        vistaComprobante = new VentanaComprobante(cuentaSeleccionada.generarComprobante(vehiculoRegistrado));
         vistaMensaje.setVisible(true);
     }
 
@@ -107,8 +107,8 @@ public class ControladorPrincipal implements BuscarCuentaListener, GestionarVehi
     }
 
     @Override
-    public void onVehiculoRegistrado(Vehiculo vehiculoSeleccionado) {
-        this.vehiculoSeleccionado = vehiculoSeleccionado;
+    public void onVehiculoRegistrado(Vehiculo vehiculoRegistrado) {
+        this.vehiculoRegistrado = vehiculoRegistrado;
         inicializarVistaComprobante();
         inicializarVistaMensaje(Mensajes.VEHICULO_REGISTRADO, "Éxito");
     }
