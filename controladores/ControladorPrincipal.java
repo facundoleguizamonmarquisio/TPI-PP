@@ -128,6 +128,18 @@ public class ControladorPrincipal
     @Override
     public void onVehiculoRegistrado(Vehiculo vehiculoRegistrado) {
         this.vehiculoRegistrado = vehiculoRegistrado;
+
+        vehiculos = new ArrayList<>();
+        for (Vehiculo v : cuentaSeleccionada.getVehiculos()) {
+            List<String> vehiculo = new ArrayList<>();
+            vehiculo.add(v.getPatente());
+            vehiculo.add(v.getMarca());
+            vehiculo.add(v.getModelo());
+            vehiculo.add(v.getColor());
+            vehiculos.add(vehiculo);
+        }
+        vistaCuenta.setPanelDatosVehiculo(vehiculos);
+
         inicializarVistaComprobante();
     }
 
