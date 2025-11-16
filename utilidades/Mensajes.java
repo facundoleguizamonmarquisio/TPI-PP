@@ -11,6 +11,4 @@ public class Mensajes {
 
     public static final String VEHICULO_INCOMPLETO = "DATOS FALTANTES: Registro denegado.";
 
-    public static final String VEHICULO_REGISTRADO = "VEHICULO REGISTRADO: Vehículo registrado con éxito.";
-
 }

@@ -1,14 +1,14 @@
 ===== COMPROBANTE DE REGISTRO DE VEHÍCULO =====
 
 === DATOS DEL cuenta ===
-Nombre: Juan
-Cédula:12355455
-Teléfono:1111111111
+Nombre: Carlos
+Cédula:11223344
+Teléfono:3333333333
 
 === DATOS DEL VEHÍCULO ===
-Marca: B
-Modelo: C
-Patente: A
-Fecha de registro:15/11/2025
-Hora de registro:23:22:20
+Marca: A
+Modelo: A
+Patente: DEF456
+Fecha de registro:16/11/2025
+Hora de registro:00:57:26
 =============================================

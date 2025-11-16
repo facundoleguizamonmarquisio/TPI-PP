@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import javax.swing.*;
 
 import modelos.UsuarioUTN;
+import modelos.Vehiculo;
 
 import java.awt.*;
 import java.awt.event.KeyAdapter;
@@ -13,14 +14,17 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 public class PanelCuenta extends JPanel {
+    private List<List<String>> vehiculos;
     private JPanel panelDatosCuenta, panelDatosUsuario, panelDatosVehiculos;
     private JLabel labelNroCuenta, labelTipoCuenta, labelEstado, labelNombreUser,
             labelApellidoUser, labelDocumentoUser, labelPatente, labelMarca, labelModelo, labelColor;
     private JLabel labelDatoNroCuenta, labelDatoTipoCuenta, labelDatoEstado, labelDatoNombreUser,
-            labelDatoApellidoUser, labelDatoDocumentoUser, labelDatoPatente, labelDatoMarca, labelDatoModelo,
-            labelDatoColor;
+            labelDatoApellidoUser, labelDatoDocumentoUser, labelDatoVehiculo;
+    private List<List<JLabel>> labelsVehiculo;
 
-    public PanelCuenta() {
+    public PanelCuenta(List<List<String>> vehiculos) {
+        this.vehiculos = vehiculos;
+
         setBorder(BorderFactory.createTitledBorder("Cuenta"));
 
         inicializarComponentes();
@@ -51,6 +55,32 @@ public class PanelCuenta extends JPanel {
 
     public void setLabelDatoDocumentoUser(String documentoUsuario) {
         labelDatoDocumentoUser.setText(documentoUsuario);
+    }
+
+    public void setDatoVehiculo(String datoVehiculo) {
+        labelDatoVehiculo.setText(datoVehiculo);
+    }
+
+    public void setPanelDatosVehiculo(List<List<String>> nuevosVehiculos) {
+        this.vehiculos = nuevosVehiculos;
+
+        labelsVehiculo.clear();
+
+        for (List<String> v : vehiculos) {
+            List<JLabel> fila = new ArrayList<>();
+            fila.add(new JLabel(v.get(0))); // Patente
+            fila.add(new JLabel(v.get(1))); // Marca
+            fila.add(new JLabel(v.get(2))); // Modelo
+            fila.add(new JLabel(v.get(3))); // Color
+            labelsVehiculo.add(fila);
+        }
+
+        panelDatosVehiculos.removeAll(); // Panel limpio
+
+        configurarLayoutVehiculos();
+
+        panelDatosVehiculos.revalidate();
+        panelDatosVehiculos.repaint();
     }
 
     // Métodos
@@ -87,10 +117,15 @@ public class PanelCuenta extends JPanel {
         labelDatoApellidoUser = new JLabel();
         labelDatoDocumentoUser = new JLabel();
 
-        labelDatoPatente = new JLabel();
-        labelDatoMarca = new JLabel();
-        labelDatoModelo = new JLabel();
-        labelDatoColor = new JLabel();
+        labelsVehiculo = new ArrayList<>();
+        for (int i = 0; i < vehiculos.size(); i++) {
+            List<JLabel> datos = new ArrayList<>();
+            datos.add(new JLabel(vehiculos.get(i).get(0))); // Patente
+            datos.add(new JLabel(vehiculos.get(i).get(1))); // Marca
+            datos.add(new JLabel(vehiculos.get(i).get(2))); // Modelo
+            datos.add(new JLabel(vehiculos.get(i).get(3))); // Color
+            labelsVehiculo.add(datos);
+        }
 
         panelDatosCuenta = new JPanel();
         panelDatosCuenta.setBorder(BorderFactory.createTitledBorder("Datos de la cuenta"));
@@ -281,5 +316,17 @@ public class PanelCuenta extends JPanel {
         gbc.fill = GridBagConstraints.NONE;
         gbc.anchor = GridBagConstraints.WEST;
         panelDatosVehiculos.add(labelColor, gbc);
+
+        for (int i = 0; i < vehiculos.size(); i++) {
+            for (int j = 0; j < 4; j++) {
+                gbc.gridx = j;
+                gbc.gridy = 1 + i;
+                gbc.gridwidth = 1;
+                gbc.weightx = 0;
+                gbc.fill = GridBagConstraints.NONE;
+                gbc.anchor = GridBagConstraints.WEST;
+                panelDatosVehiculos.add(labelsVehiculo.get(i).get(j), gbc);
+            }
+        }
     }
 }

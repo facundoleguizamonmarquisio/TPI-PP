@@ -15,6 +15,7 @@ public class ControladorPrincipal
         implements BuscarCuentaListener, GestionarVehiculoListener, GuardarComprobanteListener {
     private ArrayList<UsuarioUTN> usuarios;
     private ArrayList<Cuenta> cuentas;
+    private List<List<String>> vehiculos;
     private VentanaPrincipal vistaPrincipal;
     private PanelBuscarCuenta BuscarCuenta;
     private PanelCuenta vistaCuenta;
@@ -55,7 +56,16 @@ public class ControladorPrincipal
     }
 
     private void inicializarVistaCuenta() {
-        vistaCuenta = new PanelCuenta();
+        vehiculos = new ArrayList<>();
+        for (Vehiculo v : cuentaSeleccionada.getVehiculos()) {
+            List<String> vehiculo = new ArrayList<>();
+            vehiculo.add(v.getPatente());
+            vehiculo.add(v.getMarca());
+            vehiculo.add(v.getModelo());
+            vehiculo.add(v.getColor());
+            vehiculos.add(vehiculo);
+        }
+        vistaCuenta = new PanelCuenta(vehiculos);
         vistaCuenta.setLabelDatoNroCuenta(String.valueOf(cuentaSeleccionada.getNumeroDeCuenta()));
         vistaCuenta.setLabelDatoTipoCuenta(String.valueOf(cuentaSeleccionada.getTipoDeCuenta().getNombre()));
         vistaCuenta.setLabelDatoEstado(String.valueOf(cuentaSeleccionada.getEstadoCuenta()));
@@ -129,6 +139,17 @@ public class ControladorPrincipal
     @Override
     public void onVehiculoEliminado() {
         inicializarVistaMensaje(Mensajes.VEHICULO_ELIMINADO, "Éxito");
+
+        vehiculos = new ArrayList<>();
+        for (Vehiculo v : cuentaSeleccionada.getVehiculos()) {
+            List<String> vehiculo = new ArrayList<>();
+            vehiculo.add(v.getPatente());
+            vehiculo.add(v.getMarca());
+            vehiculo.add(v.getModelo());
+            vehiculo.add(v.getColor());
+            vehiculos.add(vehiculo);
+        }
+        vistaCuenta.setPanelDatosVehiculo(vehiculos);
     }
 
     @Override

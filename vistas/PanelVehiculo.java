@@ -19,6 +19,7 @@ public class PanelVehiculo extends JPanel {
     private JButton btnRegistrar, btnEliminar;
 
     public PanelVehiculo() {
+
         setBorder(BorderFactory.createTitledBorder("Gestión de vehículos"));
 
         inicializarComponentes();
