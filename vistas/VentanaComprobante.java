@@ -10,12 +10,13 @@ public class VentanaComprobante extends JFrame {
     private JButton btnGuardar, btnSalir;
 
     public VentanaComprobante(StringBuilder mensaje) {
-        // ventana.dispose(); Para poder cerrar la ventana
-
         this.mensaje = mensaje;
 
         setTitle("Comprobante");
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+
+        // setUndecorated(true); // Quitar barra de opciones
+        setResizable(false);
 
         inicializarComponentes();
 
@@ -25,12 +26,21 @@ public class VentanaComprobante extends JFrame {
         setLocationRelativeTo(null);
     }
 
+    // Getter
+    public JButton getBtnGuardar() {
+        return btnGuardar;
+    }
+
+    public JButton getBtnSalir() {
+        return btnSalir;
+    }
+
     // Métodos
     private void inicializarComponentes() {
         taComprobante = new JTextArea();
         taComprobante.setText(mensaje.toString());
         taComprobante.setEditable(false);
-        ;
+        taComprobante.setOpaque(false);
 
         btnGuardar = new JButton("Guardar");
         btnSalir = new JButton("Salir");
@@ -54,7 +64,7 @@ public class VentanaComprobante extends JFrame {
         gbc.gridwidth = 1;
         gbc.weightx = 0;
         gbc.fill = GridBagConstraints.NONE;
-        gbc.anchor = GridBagConstraints.WEST;
+        gbc.anchor = GridBagConstraints.EAST;
         add(btnGuardar, gbc);
 
         gbc.gridx = 1;
@@ -62,7 +72,7 @@ public class VentanaComprobante extends JFrame {
         gbc.gridwidth = 1;
         gbc.weightx = 0;
         gbc.fill = GridBagConstraints.NONE;
-        gbc.anchor = GridBagConstraints.WEST;
+        gbc.anchor = GridBagConstraints.EAST;
         add(btnSalir, gbc);
     }
 

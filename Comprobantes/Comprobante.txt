@@ -1,0 +1,14 @@
+===== COMPROBANTE DE REGISTRO DE VEHÍCULO =====
+
+=== DATOS DEL cuenta ===
+Nombre: Juan
+Cédula:12355455
+Teléfono:1111111111
+
+=== DATOS DEL VEHÍCULO ===
+Marca: ABC
+Modelo: ABC
+Patente: ABC
+Fecha de registro:15/11/2025
+Hora de registro:22:49:51
+=============================================

@@ -22,6 +22,7 @@ public class ControladorPrincipal implements BuscarCuentaListener, GestionarVehi
     private VentanaComprobante vistaComprobante;
     private ControladorBuscarCuenta ctrlCuenta;
     private ControladorVehiculo ctrlVehiculo;
+    private ControladorComprobante ctrlComprobante;
     private Cuenta cuentaSeleccionada;
     private Vehiculo vehiculoRegistrado;
 
@@ -81,6 +82,9 @@ public class ControladorPrincipal implements BuscarCuentaListener, GestionarVehi
     private void inicializarVistaComprobante() {
         vistaComprobante = new VentanaComprobante(cuentaSeleccionada.generarComprobante(vehiculoRegistrado));
         vistaComprobante.setVisible(true);
+
+        ctrlComprobante = new ControladorComprobante(vistaComprobante,
+                cuentaSeleccionada.generarComprobante(vehiculoRegistrado));
     }
 
     @Override

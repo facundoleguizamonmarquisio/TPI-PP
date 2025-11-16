@@ -23,6 +23,8 @@ public class VentanaEmergente extends JFrame {
             getContentPane().setBackground(new Color(207, 233, 206));
         }
 
+        setResizable(false);
+
         inicializarComponentes();
 
         configurarLayout();
@@ -52,7 +54,7 @@ public class VentanaEmergente extends JFrame {
         gbc.gridy = 0;
         gbc.gridwidth = 1;
         gbc.weightx = 1;
-        gbc.fill = GridBagConstraints.BOTH;
+        gbc.fill = GridBagConstraints.NONE;
         gbc.anchor = GridBagConstraints.CENTER;
         add(aviso, gbc);
     }
