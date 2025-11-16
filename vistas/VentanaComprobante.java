@@ -4,26 +4,27 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-public class VentanaComprobante extends JFrame {
+public class VentanaComprobante extends JDialog {
     private StringBuilder mensaje;
     private JTextArea taComprobante;
     private JButton btnGuardar, btnSalir;
 
-    public VentanaComprobante(StringBuilder mensaje) {
+    public VentanaComprobante(JFrame padre, StringBuilder mensaje) {
+        super(padre, "Comprobante", true);
         this.mensaje = mensaje;
 
-        setTitle("Comprobante");
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 
         // setUndecorated(true); // Quitar barra de opciones
         setResizable(false);
+        setAlwaysOnTop(true); // Siempre arriba
 
         inicializarComponentes();
 
         configurarLayout();
 
         pack();
-        setLocationRelativeTo(null);
+        setLocationRelativeTo(padre);
     }
 
     // Getter

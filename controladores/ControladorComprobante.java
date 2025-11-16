@@ -45,6 +45,7 @@ public class ControladorComprobante implements ActionListener {
     }
 
     private void manejarSalida() {
+        System.out.println("Hola");
         vistaComprobante.dispose();
     }
 
