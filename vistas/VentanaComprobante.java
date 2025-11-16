@@ -5,13 +5,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class VentanaComprobante extends JFrame {
-    private StringBuilder comprobante;
+    private StringBuilder mensaje;
+    private JTextArea taComprobante;
     private JButton btnGuardar, btnSalir;
 
-    public VentanaComprobante(StringBuilder comprobante) {
+    public VentanaComprobante(StringBuilder mensaje) {
         // ventana.dispose(); Para poder cerrar la ventana
 
-        this.comprobante = comprobante;
+        this.mensaje = mensaje;
 
         setTitle("Comprobante");
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -26,6 +27,11 @@ public class VentanaComprobante extends JFrame {
 
     // Métodos
     private void inicializarComponentes() {
+        taComprobante = new JTextArea();
+        taComprobante.setText(mensaje.toString());
+        taComprobante.setEditable(false);
+        ;
+
         btnGuardar = new JButton("Guardar");
         btnSalir = new JButton("Salir");
     }
@@ -37,19 +43,27 @@ public class VentanaComprobante extends JFrame {
 
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.gridwidth = 1; // Ocupa 1 columna
+        gbc.gridwidth = 2; // Ocupa 2 columna
         gbc.weightx = 0; // No se expande en x
         gbc.fill = GridBagConstraints.NONE;
-        gbc.anchor = GridBagConstraints.WEST;
-        add(btnGuardar, gbc);
+        gbc.anchor = GridBagConstraints.CENTER;
+        add(taComprobante, gbc);
 
-        gbc.gridx = 1;
-        gbc.gridy = 0;
+        gbc.gridx = 0;
+        gbc.gridy = 1;
         gbc.gridwidth = 1;
         gbc.weightx = 0;
         gbc.fill = GridBagConstraints.NONE;
         gbc.anchor = GridBagConstraints.WEST;
         add(btnGuardar, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        gbc.gridwidth = 1;
+        gbc.weightx = 0;
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.anchor = GridBagConstraints.WEST;
+        add(btnSalir, gbc);
     }
 
 }
