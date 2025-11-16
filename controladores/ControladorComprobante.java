@@ -7,11 +7,13 @@ import utilidades.Mensajes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileWriter;
+import java.security.Guard;
 import java.util.ArrayList;
 
 public class ControladorComprobante implements ActionListener {
     private VentanaComprobante vistaComprobante;
     private StringBuilder contenido;
+    private GuardarComprobanteListener comprobanteListener;
 
     public ControladorComprobante(VentanaComprobante vistaComprobante, StringBuilder contenido) {
         this.vistaComprobante = vistaComprobante;
@@ -19,6 +21,11 @@ public class ControladorComprobante implements ActionListener {
 
         this.vistaComprobante.getBtnGuardar().addActionListener(this);
         this.vistaComprobante.getBtnSalir().addActionListener(this);
+    }
+
+    // Setter
+    public void setGuardarComprobanteListener(GuardarComprobanteListener comprobanteListener) {
+        this.comprobanteListener = comprobanteListener;
     }
 
     // Métodos
@@ -45,8 +52,10 @@ public class ControladorComprobante implements ActionListener {
     }
 
     private void manejarSalida() {
-        System.out.println("Hola");
         vistaComprobante.dispose();
+        if (comprobanteListener != null) {
+            comprobanteListener.onComprobanteGuardado();
+        }
     }
 
 }

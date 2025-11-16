@@ -4,17 +4,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-public class VentanaEmergente extends JFrame {
+public class VentanaEmergente extends JDialog {
     private String mensaje;
     private String tipo; // Error, Éxito
     private JButton btnGuardar, btnSalir;
     private JTextArea aviso;
 
-    public VentanaEmergente(String mensaje, String tipo) {
+    public VentanaEmergente(JFrame padre, String mensaje, String tipo) {
+        super(padre, tipo, true);
         this.mensaje = mensaje;
         this.tipo = tipo;
 
-        setTitle(tipo);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         if (tipo.equals("Error")) {

@@ -11,7 +11,8 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ControladorPrincipal implements BuscarCuentaListener, GestionarVehiculoListener {
+public class ControladorPrincipal
+        implements BuscarCuentaListener, GestionarVehiculoListener, GuardarComprobanteListener {
     private ArrayList<UsuarioUTN> usuarios;
     private ArrayList<Cuenta> cuentas;
     private VentanaPrincipal vistaPrincipal;
@@ -75,17 +76,20 @@ public class ControladorPrincipal implements BuscarCuentaListener, GestionarVehi
     }
 
     private void inicializarVistaMensaje(String mensaje, String tipo) {
-        vistaMensaje = new VentanaEmergente(mensaje, tipo);
+        vistaMensaje = new VentanaEmergente(vistaPrincipal, mensaje, tipo);
         vistaMensaje.setVisible(true);
     }
 
     private void inicializarVistaComprobante() {
         vistaComprobante = new VentanaComprobante(vistaPrincipal,
                 cuentaSeleccionada.generarComprobante(vehiculoRegistrado));
-        vistaComprobante.setVisible(true);
 
         ctrlComprobante = new ControladorComprobante(vistaComprobante,
                 cuentaSeleccionada.generarComprobante(vehiculoRegistrado));
+        ctrlComprobante.setGuardarComprobanteListener(this);
+
+        vistaComprobante.setVisible(true);
+
     }
 
     @Override
@@ -115,7 +119,6 @@ public class ControladorPrincipal implements BuscarCuentaListener, GestionarVehi
     public void onVehiculoRegistrado(Vehiculo vehiculoRegistrado) {
         this.vehiculoRegistrado = vehiculoRegistrado;
         inicializarVistaComprobante();
-        inicializarVistaMensaje(Mensajes.VEHICULO_REGISTRADO, "Éxito");
     }
 
     @Override
@@ -126,5 +129,11 @@ public class ControladorPrincipal implements BuscarCuentaListener, GestionarVehi
     @Override
     public void onVehiculoEliminado() {
         inicializarVistaMensaje(Mensajes.VEHICULO_ELIMINADO, "Éxito");
+    }
+
+    @Override
+    public void onComprobanteGuardado() {
+        vistaPrincipal.dispose();
+        ;
     }
 }
