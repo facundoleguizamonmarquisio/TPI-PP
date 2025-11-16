@@ -5,13 +5,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class VentanaComprobante extends JFrame {
-    private String comprobante;
+    private StringBuilder comprobante;
     private JButton btnGuardar, btnSalir;
 
-    public VentanaComprobante(String comprobante) {
+    public VentanaComprobante(StringBuilder comprobante) {
         this.comprobante = comprobante;
 
-        setTitle("Registro de vehículo");
+        setTitle("Comprobante");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         inicializarComponentes();

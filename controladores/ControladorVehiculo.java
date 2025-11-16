@@ -47,16 +47,16 @@ public class ControladorVehiculo implements ActionListener {
         String color = vistaVehiculo.getTfColor().getText();
 
         if (!(patente.isEmpty() || marca.isEmpty() || modelo.isEmpty() || color.isEmpty())) {
-            Vehiculo VehiculoIngresado = buscarVehiculo(patente);
+            Vehiculo vehiculoIngresado = buscarVehiculo(patente);
 
-            if (VehiculoIngresado != null) { // Vehículo ya asociado
+            if (vehiculoIngresado != null) { // Vehículo ya asociado
                 if (vehiculoListener != null) {
                     vehiculoListener.onVehiculoAsociado();
                 }
             } else { // Vehículo aún inexistente
                 cuentaSeleccionada.asociarVehiculo(new Vehiculo(patente, marca, modelo, color));
                 if (vehiculoListener != null) {
-                    vehiculoListener.onVehiculoRegistrado();
+                    vehiculoListener.onVehiculoRegistrado(vehiculoIngresado);
                 }
             }
         } else {

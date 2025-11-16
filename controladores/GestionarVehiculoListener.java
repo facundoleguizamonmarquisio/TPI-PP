@@ -9,7 +9,7 @@ public interface GestionarVehiculoListener {
 
     void onVehiculoIncompleto();
 
-    void onVehiculoRegistrado();
+    void onVehiculoRegistrado(Vehiculo vehiculoSeleccionado);
 
     void onVehiculoEliminado();
 

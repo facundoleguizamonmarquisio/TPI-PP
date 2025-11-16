@@ -14,12 +14,12 @@ import java.awt.event.ActionListener;
 public class ControladorPrincipal implements BuscarCuentaListener, GestionarVehiculoListener {
     private ArrayList<UsuarioUTN> usuarios;
     private ArrayList<Cuenta> cuentas;
-    private ArrayList<Vehiculo> vehiculos;
     private VentanaPrincipal vistaPrincipal;
     private PanelBuscarCuenta BuscarCuenta;
     private PanelCuenta vistaCuenta;
     private PanelVehiculo vistaVehiculo;
     private VentanaEmergente vistaMensaje;
+    private VentanaComprobante vistaComprobante;
     private ControladorBuscarCuenta ctrlCuenta;
     private ControladorVehiculo ctrlVehiculo;
     private Cuenta cuentaSeleccionada;
@@ -29,7 +29,6 @@ public class ControladorPrincipal implements BuscarCuentaListener, GestionarVehi
             ArrayList<Vehiculo> vehiculos) {
         this.usuarios = usuarios;
         this.cuentas = cuentas;
-        this.vehiculos = vehiculos;
     }
 
     // Métodos
@@ -79,6 +78,11 @@ public class ControladorPrincipal implements BuscarCuentaListener, GestionarVehi
         vistaMensaje.setVisible(true);
     }
 
+    private void inicializarVistaComprobante() {
+        vistaComprobante = new VentanaComprobante(cuentaSeleccionada.generarComprobante(vehiculoSeleccionado));
+        vistaMensaje.setVisible(true);
+    }
+
     @Override
     public void onCuentaEncontrada(Cuenta cuentaSeleccionada) {
         this.cuentaSeleccionada = cuentaSeleccionada;
@@ -103,7 +107,9 @@ public class ControladorPrincipal implements BuscarCuentaListener, GestionarVehi
     }
 
     @Override
-    public void onVehiculoRegistrado() {
+    public void onVehiculoRegistrado(Vehiculo vehiculoSeleccionado) {
+        this.vehiculoSeleccionado = vehiculoSeleccionado;
+        inicializarVistaComprobante();
         inicializarVistaMensaje(Mensajes.VEHICULO_REGISTRADO, "Éxito");
     }
 
