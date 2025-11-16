@@ -1,23 +1,61 @@
 package controladores;
 
+import vistas.*;
 import modelos.*;
+import utilidades.Mensajes;
 
-public class ControladorComprobante {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileWriter;
+import java.security.Guard;
+import java.util.ArrayList;
 
-    public static String generarComprobante(Cuenta cuenta, Vehiculo vehiculo) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("===== COMPROBANTE DE REGISTRO DE VEHÍCULO =====\n\n");
-        sb.append("=== DATOS DEL cuenta ===\n");
-        sb.append("Nombre: ").append(cuenta.getUsuario().getNombre()).append("\n");
-        sb.append("Cédula: ").append(cuenta.getUsuario().getDocumento()).append("\n");
-        sb.append("Teléfono: ").append(cuenta.getUsuario().getTelefono()).append("\n\n");
-        sb.append("=== DATOS DEL VEHÍCULO ===\n");
-        sb.append("Marca: ").append(vehiculo.getMarca()).append("\n");
-        sb.append("Modelo: ").append(vehiculo.getModelo()).append("\n");
-        sb.append("Patente: ").append(vehiculo.getPatente()).append("\n");
-        sb.append("Fecha de registro: ").append(vehiculo.getFechaRegistro()).append("\n");
-        sb.append("Hora de registro: ").append(vehiculo.getHoraRegistro()).append("\n");
-        sb.append("=============================================\n");
-        return sb.toString();
+public class ControladorComprobante implements ActionListener {
+    private VentanaComprobante vistaComprobante;
+    private StringBuilder contenido;
+    private GuardarComprobanteListener comprobanteListener;
+
+    public ControladorComprobante(VentanaComprobante vistaComprobante, StringBuilder contenido) {
+        this.vistaComprobante = vistaComprobante;
+        this.contenido = contenido;
+
+        this.vistaComprobante.getBtnGuardar().addActionListener(this);
+        this.vistaComprobante.getBtnSalir().addActionListener(this);
     }
+
+    // Setter
+    public void setGuardarComprobanteListener(GuardarComprobanteListener comprobanteListener) {
+        this.comprobanteListener = comprobanteListener;
+    }
+
+    // Métodos
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Object source = e.getSource();
+
+        if (source == vistaComprobante.getBtnGuardar()) {
+            manejarGuardado();
+        } else if (source == vistaComprobante.getBtnSalir()) {
+            manejarSalida();
+        }
+    }
+
+    private void manejarGuardado() {
+        try {
+            FileWriter escritor = new FileWriter("Comprobantes/Comprobante.txt");
+            escritor.write(contenido.toString()); // Escribe el contenido
+            escritor.close(); // Cierra el archivo
+        } catch (Exception e) {
+            System.out.println("Error");
+        }
+
+    }
+
+    private void manejarSalida() {
+        vistaComprobante.dispose();
+        if (comprobanteListener != null) {
+            comprobanteListener.onComprobanteGuardado();
+        }
+    }
+
 }

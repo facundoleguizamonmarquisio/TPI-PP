@@ -10,12 +10,12 @@ import java.nio.channels.Pipe.SourceChannel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ControladorCuenta implements ActionListener {
-    private PanelCuenta vistaCuenta;
+public class ControladorBuscarCuenta implements ActionListener {
     private ArrayList<Cuenta> cuentas;
-    private CuentaVerificadaListener cvlistener;
+    private PanelBuscarCuenta vistaCuenta;
+    private BuscarCuentaListener cuentaListener;
 
-    public ControladorCuenta(PanelCuenta vistaCuenta, ArrayList<Cuenta> cuentas) {
+    public ControladorBuscarCuenta(PanelBuscarCuenta vistaCuenta, ArrayList<Cuenta> cuentas) {
         this.vistaCuenta = vistaCuenta;
         this.vistaCuenta.getBtnVerificar().addActionListener(this);
 
@@ -23,8 +23,8 @@ public class ControladorCuenta implements ActionListener {
     }
 
     // Setter
-    public void setCuentaVerificadaListener(CuentaVerificadaListener cvlistener) {
-        this.cvlistener = cvlistener;
+    public void setCuentaBuscadaListener(BuscarCuentaListener cuentaListener) {
+        this.cuentaListener = cuentaListener;
     }
 
     // Métodos
@@ -43,27 +43,27 @@ public class ControladorCuenta implements ActionListener {
         Cuenta cuentaSeleccionada = buscarCuenta(documentoUsuario);
 
         if (cuentaSeleccionada != null) {
-            if (cvlistener != null) {
-                cvlistener.onCuentaEncontrada(cuentaSeleccionada);
+            if (cuentaListener != null) {
+                cuentaListener.onCuentaEncontrada(cuentaSeleccionada);
             }
         } else {
-            if (cvlistener != null) {
-                cvlistener.onCuentaNoEncontrada();
+            if (cuentaListener != null) {
+                cuentaListener.onCuentaNoEncontrada();
 
             }
 
         }
     }
 
-    private Cuenta buscarCuenta(String documentoUsuario) {
-        Cuenta cuentaSeleccionada = null;
+    private Cuenta buscarCuenta(String legajoUsuario) {
+        Cuenta cuentaEncontrada = null;
 
         for (int i = 0; i < cuentas.size(); i++) {
             UsuarioUTN usuarioCuenta = cuentas.get(i).getUsuario();
-            if (documentoUsuario == usuarioCuenta.getDocumento()) {
-                cuentaSeleccionada = cuentas.get(i);
+            if (legajoUsuario.equals(String.valueOf(usuarioCuenta.getLegajo()))) {
+                cuentaEncontrada = cuentas.get(i);
             }
         }
-        return cuentaSeleccionada;
+        return cuentaEncontrada;
     }
 }
