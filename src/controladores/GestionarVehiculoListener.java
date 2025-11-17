@@ -1,6 +1,6 @@
-package controladores;
+package src.controladores;
 
-import modelos.*;
+import src.modelos.*;
 
 public interface GestionarVehiculoListener {
     void onVehiculoAsociado();

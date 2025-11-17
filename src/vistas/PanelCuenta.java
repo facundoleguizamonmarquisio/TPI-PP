@@ -1,13 +1,9 @@
-package vistas;
+package src.vistas;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.swing.*;
-
-import modelos.UsuarioUTN;
-import modelos.Vehiculo;
-
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;

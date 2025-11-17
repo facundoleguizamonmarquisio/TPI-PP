@@ -1,4 +1,4 @@
-package vistas;
+package src.vistas;
 
 import java.util.List;
 import java.util.stream.Collectors;
