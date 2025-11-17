@@ -1,5 +1,4 @@
-package src.modelos;
-
+package modelos;
 public class UsuarioUTN extends Persona {
     private TipoDeUsuario tipoDeUsuario;
     private int legajo;

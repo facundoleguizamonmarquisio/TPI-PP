@@ -1,4 +1,4 @@
-package src.vistas;
+package vistas;
 
 import javax.swing.*;
 import java.awt.*;

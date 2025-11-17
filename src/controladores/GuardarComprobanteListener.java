@@ -1,5 +1,4 @@
-package src.controladores;
-
+package controladores;
 public interface GuardarComprobanteListener {
     void onComprobanteGuardado();
 }

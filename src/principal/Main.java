@@ -1,9 +1,9 @@
-package src.principal;
+package principal;
 
 import java.util.ArrayList;
 
-import src.controladores.*;
-import src.modelos.*;
+import controladores.*;
+import modelos.*;
 
 public class Main {
     public static void main(String[] args) {

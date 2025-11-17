@@ -1,5 +1,4 @@
-package src.modelos;
-
+package modelos;
 public class TipoDeUsuario {
 
     private String nombre;

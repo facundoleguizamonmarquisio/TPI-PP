@@ -1,4 +1,4 @@
-package src.utilidades;
+package utilidades;
 
 public class Mensajes {
     public static final String CUENTA_NO_ENCONTRADA = "CUENTA NO ENCONTRADA: Registro denegado.";

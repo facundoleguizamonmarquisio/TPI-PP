@@ -1,12 +1,12 @@
-package src.vistas;
+package vistas;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.swing.*;
 
-import src.modelos.Cuenta;
-import src.modelos.UsuarioUTN;
+import modelos.Cuenta;
+import modelos.UsuarioUTN;
 
 import java.awt.*;
 import java.awt.event.KeyAdapter;

@@ -1,6 +1,6 @@
-package src.controladores;
+package controladores;
 
-import src.modelos.*;
+import modelos.*;
 
 public interface BuscarCuentaListener {
     void onCuentaEncontrada(Cuenta cuenta);

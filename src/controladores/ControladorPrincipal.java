@@ -1,13 +1,13 @@
-package src.controladores;
+package controladores;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.*;
 
-import src.modelos.*;
-import src.utilidades.*;
-import src.vistas.*;
+import modelos.*;
+import utilidades.*;
+import vistas.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

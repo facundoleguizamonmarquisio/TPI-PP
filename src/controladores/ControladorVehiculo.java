@@ -1,12 +1,12 @@
-package src.controladores;
+package controladores;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import src.modelos.*;
-import src.utilidades.Mensajes;
-import src.vistas.*;
+import modelos.*;
+import utilidades.Mensajes;
+import vistas.*;
 
 public class ControladorVehiculo implements ActionListener {
     private Cuenta cuentaSeleccionada;

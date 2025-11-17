@@ -1,7 +1,7 @@
-package src.controladores;
+package controladores;
 
-import src.modelos.*;
-import src.vistas.*;
+import modelos.*;
+import vistas.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

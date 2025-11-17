@@ -1,5 +1,4 @@
-package src.modelos;
-
+package modelos;
 public abstract class Persona {
   protected String nombre;
   protected String apellido;

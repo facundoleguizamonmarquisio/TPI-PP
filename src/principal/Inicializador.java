@@ -1,10 +1,10 @@
-package src.principal;
+package principal;
 
 import java.util.ArrayList;
 
-import src.controladores.*;
-import src.modelos.*;
-import src.vistas.*;
+import controladores.*;
+import modelos.*;
+import vistas.*;
 
 import java.util.ArrayList;
 

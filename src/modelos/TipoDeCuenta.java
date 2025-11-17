@@ -1,5 +1,4 @@
-package src.modelos;
-
+package modelos;
 public class TipoDeCuenta {
     protected String nombre;
     protected String descripcion;
