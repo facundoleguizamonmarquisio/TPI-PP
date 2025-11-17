@@ -1,0 +1,14 @@
+===== COMPROBANTE DE REGISTRO DE VEHÍCULO =====
+
+=== DATOS DEL cuenta ===
+Nombre: María
+Cédula:87654321
+Teléfono:2222222222
+
+=== DATOS DEL VEHÍCULO ===
+Marca: A
+Modelo: A
+Patente: ABC123
+Fecha de registro:17/11/2025
+Hora de registro:14:59:15
+=============================================
