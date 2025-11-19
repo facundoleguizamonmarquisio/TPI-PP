@@ -38,6 +38,7 @@ public class ControladorBuscarCuenta implements ActionListener {
     }
 
     private void manejarVerificacion() {
+        System.out.println("Sii");
         String documentoUsuario = ((String) vistaCuenta.getCbUsuarios().getSelectedItem());
 
         Cuenta cuentaSeleccionada = buscarCuenta(documentoUsuario);

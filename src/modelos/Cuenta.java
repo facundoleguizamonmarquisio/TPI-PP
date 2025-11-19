@@ -71,7 +71,7 @@ public class Cuenta {
     public StringBuilder generarComprobante(Vehiculo vehiculo) {
         StringBuilder mensajeComprobante = new StringBuilder();
         mensajeComprobante.append("===== COMPROBANTE DE REGISTRO DE VEHÍCULO =====\n\n");
-        mensajeComprobante.append("=== DATOS DEL cuenta ===\n");
+        mensajeComprobante.append("=== DATOS DE LA CUENTA ===\n");
         mensajeComprobante.append("Nombre: ").append(getUsuario().getNombre()).append("\n");
         mensajeComprobante.append("Cédula:").append(getUsuario().getDocumento()).append("\n");
         mensajeComprobante.append("Teléfono:").append(getUsuario().getTelefono()).append("\n\n");

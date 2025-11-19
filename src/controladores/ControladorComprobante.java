@@ -13,11 +13,18 @@ import java.util.ArrayList;
 public class ControladorComprobante implements ActionListener {
     private VentanaComprobante vistaComprobante;
     private StringBuilder contenido;
+    private String patenteVehiculo;
+    private int nroCuenta;
     private GuardarComprobanteListener comprobanteListener;
 
-    public ControladorComprobante(VentanaComprobante vistaComprobante, StringBuilder contenido) {
+    public ControladorComprobante(VentanaComprobante vistaComprobante, StringBuilder contenido, String patenteVehiculo,
+            int nroCuenta) {
         this.vistaComprobante = vistaComprobante;
         this.contenido = contenido;
+        this.patenteVehiculo = patenteVehiculo;
+        this.nroCuenta = nroCuenta;
+        this.patenteVehiculo = patenteVehiculo;
+        this.nroCuenta = nroCuenta;
 
         this.vistaComprobante.getBtnGuardar().addActionListener(this);
         this.vistaComprobante.getBtnSalir().addActionListener(this);
@@ -41,13 +48,16 @@ public class ControladorComprobante implements ActionListener {
     }
 
     private void manejarGuardado() {
-        try {
-            FileWriter escritor = new FileWriter("Comprobantes/Comprobante.txt");
-            escritor.write(contenido.toString()); // Escribe el contenido
-            escritor.close(); // Cierra el archivo
-        } catch (Exception e) {
-            System.out.println("Error");
-        }
+        // try {
+        // FileWriter escritor = new FileWriter(
+        // "Comprobantes/Comprobante_" + nroCuenta + "_" + patenteVehiculo + ".txt");
+        // escritor.write(contenido.toString()); // Escribe el contenido
+        // escritor.close(); // Cierra el archivo
+        // } catch (Exception e) {
+        // System.out.println("Error");
+        // }
+
+        System.out.println("Hola");
 
     }
 

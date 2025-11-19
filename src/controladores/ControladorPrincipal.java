@@ -96,7 +96,8 @@ public class ControladorPrincipal
                 cuentaSeleccionada.generarComprobante(vehiculoRegistrado));
 
         ctrlComprobante = new ControladorComprobante(vistaComprobante,
-                cuentaSeleccionada.generarComprobante(vehiculoRegistrado));
+                cuentaSeleccionada.generarComprobante(vehiculoRegistrado), vehiculoRegistrado.getPatente(),
+                cuentaSeleccionada.getNumeroDeCuenta());
         ctrlComprobante.setGuardarComprobanteListener(this);
 
         vistaComprobante.setVisible(true);

@@ -1,1 +1,0 @@
-:- writeln('base.pl cargado correctamente').
