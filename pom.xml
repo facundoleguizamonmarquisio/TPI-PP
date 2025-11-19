@@ -1,0 +1,5 @@
+<dependency>
+    <groupId>org.projog</groupId>
+    <artifactId>projog-core</artifactId>
+    <version>0.10.0</version>
+</dependency>
