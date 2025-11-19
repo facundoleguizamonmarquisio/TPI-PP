@@ -15,7 +15,7 @@ public class PanelBuscarCuenta extends JPanel {
     private List<String> legajoUsuarios;
     private JLabel labelUsuario;
     private JComboBox<String> cbUsuarios;
-    private JButton btnVerificar;
+    private JButton btnBuscar;
 
     public PanelBuscarCuenta(List<String> legajoUsuarios) {
         this.legajoUsuarios = legajoUsuarios;
@@ -53,8 +53,8 @@ public class PanelBuscarCuenta extends JPanel {
     }
 
     // Getter
-    public JButton getBtnVerificar() {
-        return btnVerificar;
+    public JButton getBtnBuscar() {
+        return btnBuscar;
     }
 
     public JComboBox<String> getCbUsuarios() {
@@ -66,7 +66,7 @@ public class PanelBuscarCuenta extends JPanel {
 
         labelUsuario = new JLabel("Legajo del usuario UTN");
 
-        btnVerificar = new JButton("Buscar cuenta");
+        btnBuscar = new JButton("Buscar cuenta");
 
         cbUsuarios = new JComboBox<>();
 
@@ -99,7 +99,7 @@ public class PanelBuscarCuenta extends JPanel {
         gbc.weightx = 0;
         gbc.fill = GridBagConstraints.NONE;
         gbc.anchor = GridBagConstraints.EAST;
-        add(btnVerificar, gbc);
+        add(btnBuscar, gbc);
 
     }
 }

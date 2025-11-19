@@ -17,7 +17,7 @@ public class ControladorBuscarCuenta implements ActionListener {
 
     public ControladorBuscarCuenta(PanelBuscarCuenta vistaCuenta, ArrayList<Cuenta> cuentas) {
         this.vistaCuenta = vistaCuenta;
-        this.vistaCuenta.getBtnVerificar().addActionListener(this);
+        this.vistaCuenta.getBtnBuscar().addActionListener(this);
 
         this.cuentas = cuentas;
     }
@@ -32,13 +32,12 @@ public class ControladorBuscarCuenta implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
 
-        if (source == vistaCuenta.getBtnVerificar()) {
-            manejarVerificacion();
+        if (source == vistaCuenta.getBtnBuscar()) {
+            manejarBusqueda();
         }
     }
 
-    private void manejarVerificacion() {
-        System.out.println("Sii");
+    private void manejarBusqueda() {
         String documentoUsuario = ((String) vistaCuenta.getCbUsuarios().getSelectedItem());
 
         Cuenta cuentaSeleccionada = buscarCuenta(documentoUsuario);

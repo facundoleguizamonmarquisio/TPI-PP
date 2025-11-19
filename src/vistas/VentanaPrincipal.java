@@ -45,4 +45,11 @@ public class VentanaPrincipal extends JFrame {
         setMaximumSize(new Dimension(620, Integer.MAX_VALUE));
         pack();
     }
+
+    public void deshabilitar_Panel(JPanel panel) {
+        panel.setEnabled(false); // Deshabilitar interacción
+        for (Component componente : panel.getComponents()) {
+            componente.setEnabled(false);
+        }
+    }
 }

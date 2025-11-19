@@ -48,17 +48,14 @@ public class ControladorComprobante implements ActionListener {
     }
 
     private void manejarGuardado() {
-        // try {
-        // FileWriter escritor = new FileWriter(
-        // "Comprobantes/Comprobante_" + nroCuenta + "_" + patenteVehiculo + ".txt");
-        // escritor.write(contenido.toString()); // Escribe el contenido
-        // escritor.close(); // Cierra el archivo
-        // } catch (Exception e) {
-        // System.out.println("Error");
-        // }
-
-        System.out.println("Hola");
-
+        try {
+            FileWriter escritor = new FileWriter(
+                    "Comprobantes/Comprobante_" + nroCuenta + "_" + patenteVehiculo + ".txt");
+            escritor.write(contenido.toString()); // Escribe el contenido
+            escritor.close(); // Cierra el archivo
+        } catch (Exception e) {
+            System.out.println("Error");
+        }
     }
 
     private void manejarSalida() {

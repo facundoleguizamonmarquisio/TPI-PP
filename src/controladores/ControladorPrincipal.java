@@ -18,7 +18,7 @@ public class ControladorPrincipal
     private ArrayList<Cuenta> cuentas;
     private List<List<String>> vehiculos;
     private VentanaPrincipal vistaPrincipal;
-    private PanelBuscarCuenta BuscarCuenta;
+    private PanelBuscarCuenta vistaBuscarCuenta;
     private PanelCuenta vistaCuenta;
     private PanelVehiculo vistaVehiculo;
     private VentanaEmergente vistaMensaje;
@@ -46,13 +46,13 @@ public class ControladorPrincipal
 
     private void inicializarVistaBuscarCuenta() {
         List<String> legajoUsuarios = usuarios.stream().map(n -> String.valueOf(n.getLegajo())).toList();
-        BuscarCuenta = new PanelBuscarCuenta(legajoUsuarios);
-        BuscarCuenta.setCbUsuarios();
+        vistaBuscarCuenta = new PanelBuscarCuenta(legajoUsuarios);
+        vistaBuscarCuenta.setCbUsuarios();
 
-        ctrlCuenta = new ControladorBuscarCuenta(BuscarCuenta, cuentas);
+        ctrlCuenta = new ControladorBuscarCuenta(vistaBuscarCuenta, cuentas);
         ctrlCuenta.setCuentaBuscadaListener(this);
 
-        vistaPrincipal.agregarPanel(BuscarCuenta);
+        vistaPrincipal.agregarPanel(vistaBuscarCuenta);
 
     }
 
@@ -108,13 +108,17 @@ public class ControladorPrincipal
     public void onCuentaEncontrada(Cuenta cuentaSeleccionada) {
         this.cuentaSeleccionada = cuentaSeleccionada;
 
+        vistaPrincipal.deshabilitar_Panel(vistaBuscarCuenta);
+
         inicializarVistaCuenta();
         inicializarVistaVehiculo();
     }
 
     @Override
     public void onCuentaNoEncontrada() {
-        inicializarVistaMensaje(Mensajes.CUENTA_NO_ENCONTRADA, "Error");
+        if (vistaCuenta != null) {
+            inicializarVistaMensaje(Mensajes.CUENTA_NO_ENCONTRADA, "Error");
+        }
     }
 
     @Override
