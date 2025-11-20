@@ -5,8 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import modelos.*;
-import utilidades.ConocimientoVehiculo;
-import utilidades.Mensajes;
+// import utilidades.ConocimientoVehiculo;
 import vistas.*;
 
 public class ControladorVehiculo implements ActionListener {
@@ -14,13 +13,16 @@ public class ControladorVehiculo implements ActionListener {
     private ArrayList<Vehiculo> vehiculos;
     private GestionarVehiculoListener vehiculoListener;
     private PanelVehiculo vistaVehiculo;
-    private ConocimientoVehiculo conocimientoVehiculo;
+    // private ConocimientoVehiculo conocimientoVehiculo;
 
-    public ControladorVehiculo(PanelVehiculo vistaVehiculo, Cuenta cuentaSeleccionada, ConocimientoVehiculo conocimientoVehiculo) {
+    // public ControladorVehiculo(PanelVehiculo vistaVehiculo, Cuenta
+    // cuentaSeleccionada,
+    // ConocimientoVehiculo conocimientoVehiculo) {
+    public ControladorVehiculo(PanelVehiculo vistaVehiculo, Cuenta cuentaSeleccionada) {
         this.vistaVehiculo = vistaVehiculo;
         this.cuentaSeleccionada = cuentaSeleccionada;
         this.vehiculos = cuentaSeleccionada.getVehiculos();
-        this.conocimientoVehiculo = conocimientoVehiculo;
+        // this.conocimientoVehiculo = conocimientoVehiculo;
 
         this.vistaVehiculo.getBtnRegistrar().addActionListener(this);
         this.vistaVehiculo.getBtnEliminar().addActionListener(this);
@@ -52,18 +54,21 @@ public class ControladorVehiculo implements ActionListener {
         if (!(patente.isEmpty() || marca.isEmpty() || modelo.isEmpty() || color.isEmpty())) {
             Vehiculo vehiculoIngresado = buscarVehiculo(patente);
 
-            if (conocimientoVehiculo.vehiculoAsociado(patente)){
-                Integer numeroCuentaAsociada= conocimientoVehiculo.obtenerCuentaDeVehiculo(patente);
-                if (numeroCuentaAsociada.equals(cuentaSeleccionada.getNumeroDeCuenta())){ //ya esa asociado a esa ceunfra
-                    if (vehiculoListener !=null){
-                        vehiculoListener.onVehiculoAsociado();
-                    }
-                } else{             //esta asocuado a otra cuenta
-                    if (vehiculoListener !=null){
-                        vehiculoListener.onVehiculoAsociado();
-                    }
-                }
-            }
+            // if (conocimientoVehiculo.vehiculoAsociado(patente)) {
+            // Integer numeroCuentaAsociada =
+            // conocimientoVehiculo.obtenerCuentaDeVehiculo(patente);
+            // if (numeroCuentaAsociada.equals(cuentaSeleccionada.getNumeroDeCuenta())) { //
+            // ya esa asociado a esa
+            // // ceunfra
+            // if (vehiculoListener != null) {
+            // vehiculoListener.onVehiculoAsociado();
+            // }
+            // } else { // esta asocuado a otra cuenta
+            // if (vehiculoListener != null) {
+            // vehiculoListener.onVehiculoAsociado();
+            // }
+            // }
+            // }
 
             if (vehiculoIngresado != null) { // Vehículo ya asociado
                 if (vehiculoListener != null) {
@@ -88,11 +93,16 @@ public class ControladorVehiculo implements ActionListener {
         String patente = vistaVehiculo.getTfPatente().getText();
 
         if (!(patente.isEmpty())) {
-            if (conocimientoVehiculo.vehiculoAsociadoACuenta(patente, cuentaSeleccionada.getNumeroDeCuenta())){
-                 Vehiculo vehiculoIngresado = buscarVehiculo(patente);
-                 cuentaSeleccionada.desasociarVehiculo(vehiculoIngresado);
-                 conocimientoVehiculo.eliminarAsociacion(patente);
-                
+            Vehiculo vehiculoIngresado = buscarVehiculo(patente);
+            if (vehiculoIngresado != null) {
+                cuentaSeleccionada.desasociarVehiculo(vehiculoIngresado);
+
+                // if (conocimientoVehiculo.vehiculoAsociadoACuenta(patente,
+                // cuentaSeleccionada.getNumeroDeCuenta())) {
+                // Vehiculo vehiculoIngresado = buscarVehiculo(patente);
+                // cuentaSeleccionada.desasociarVehiculo(vehiculoIngresado);
+                // conocimientoVehiculo.eliminarAsociacion(patente);
+
                 if (vehiculoListener != null) {
                     vehiculoListener.onVehiculoEliminado();
                 }
