@@ -28,11 +28,13 @@ public class ControladorPrincipal
     private ControladorComprobante ctrlComprobante;
     private Cuenta cuentaSeleccionada;
     private Vehiculo vehiculoRegistrado;
+    private ConocimientoVehiculo conocimientoVehiculo;
 
     public ControladorPrincipal(ArrayList<UsuarioUTN> usuarios, ArrayList<Cuenta> cuentas,
-            ArrayList<Vehiculo> vehiculos) {
+            ArrayList<Vehiculo> vehiculos, ConocimientoVehiculo conocimientoVehiculo) {
         this.usuarios = usuarios;
         this.cuentas = cuentas;
+        this.conocimientoVehiculo= conocimientoVehiculo;
     }
 
     // Métodos
@@ -80,7 +82,7 @@ public class ControladorPrincipal
     private void inicializarVistaVehiculo() {
         vistaVehiculo = new PanelVehiculo();
 
-        ctrlVehiculo = new ControladorVehiculo(vistaVehiculo, cuentaSeleccionada);
+        ctrlVehiculo = new ControladorVehiculo(vistaVehiculo, cuentaSeleccionada, conocimientoVehiculo);
         ctrlVehiculo.setVehiculoBuscadoListener(this);
 
         vistaPrincipal.agregarPanel(vistaVehiculo);
@@ -128,12 +130,14 @@ public class ControladorPrincipal
 
     @Override
     public void onVehiculoNoEncontrado() {
-        inicializarVistaMensaje(Mensajes.VEHICULO_NO_ENCONTRAD0, "Error");
+        inicializarVistaMensaje(Mensajes.VEHICULO_NO_ENCONTRADO, "Error");
     }
 
     @Override
     public void onVehiculoRegistrado(Vehiculo vehiculoRegistrado) {
         this.vehiculoRegistrado = vehiculoRegistrado;
+
+        conocimientoVehiculo.agregarAsociacion(vehiculoRegistrado.getPatente(), cuentaSeleccionada.getNumeroDeCuenta());
 
         vehiculos = new ArrayList<>();
         for (Vehiculo v : cuentaSeleccionada.getVehiculos()) {

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import controladores.*;
 import modelos.*;
+import utilidades.ConocimientoVehiculo;
 import vistas.*;
 
 import java.util.ArrayList;
@@ -76,5 +77,15 @@ public class Inicializador {
         cuentas.add(cuenta4);
 
         return cuentas;
+    }
+
+    public static ConocimientoVehiculo crearConocimientoVehiculo(ArrayList<Cuenta> cuentas){
+        ConocimientoVehiculo conocimientoVehiculo= new ConocimientoVehiculo();
+        for (Cuenta cuenta: cuentas){
+            for (Vehiculo vehiculo: cuenta.getVehiculos()){
+                conocimientoVehiculo.agregarAsociacion(vehiculo.getPatente(), cuenta.getNumeroDeCuenta());
+            }
+        }
+        return conocimientoVehiculo;
     }
 }
