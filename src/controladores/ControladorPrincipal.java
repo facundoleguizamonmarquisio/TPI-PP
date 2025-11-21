@@ -3,14 +3,9 @@ package controladores;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.*;
-
 import modelos.*;
 import utilidades.*;
 import vistas.*;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class ControladorPrincipal
         implements BuscarCuentaListener, GestionarVehiculoListener, GuardarComprobanteListener {
@@ -31,7 +26,7 @@ public class ControladorPrincipal
     private ConocimientoVehiculo conocimientoVehiculo;
 
     public ControladorPrincipal(ArrayList<UsuarioUTN> usuarios, ArrayList<Cuenta> cuentas,
-            ArrayList<Vehiculo> vehiculos, ConocimientoVehiculo conocimientoVehiculo) {
+            ConocimientoVehiculo conocimientoVehiculo) {
         this.usuarios = usuarios;
         this.cuentas = cuentas;
         this.conocimientoVehiculo = conocimientoVehiculo;
@@ -59,15 +54,7 @@ public class ControladorPrincipal
     }
 
     private void inicializarVistaCuenta() {
-        vehiculos = new ArrayList<>();
-        for (Vehiculo v : cuentaSeleccionada.getVehiculos()) {
-            List<String> vehiculo = new ArrayList<>();
-            vehiculo.add(v.getPatente());
-            vehiculo.add(v.getMarca());
-            vehiculo.add(v.getModelo());
-            vehiculo.add(v.getColor());
-            vehiculos.add(vehiculo);
-        }
+        vehiculos = obtenerStringVehiculos();
         vistaCuenta = new PanelCuenta(vehiculos);
         vistaCuenta.setLabelDatoNroCuenta(String.valueOf(cuentaSeleccionada.getNumeroDeCuenta()));
         vistaCuenta.setLabelDatoTipoCuenta(String.valueOf(cuentaSeleccionada.getTipoDeCuenta().getNombre()));
@@ -118,9 +105,7 @@ public class ControladorPrincipal
 
     @Override
     public void onCuentaNoEncontrada() {
-        if (vistaCuenta != null) {
-            inicializarVistaMensaje(Mensajes.CUENTA_NO_ENCONTRADA, "Error");
-        }
+        inicializarVistaMensaje(Mensajes.CUENTA_NO_ENCONTRADA, "Error");
     }
 
     @Override
@@ -137,18 +122,7 @@ public class ControladorPrincipal
     public void onVehiculoRegistrado(Vehiculo vehiculoRegistrado) {
         this.vehiculoRegistrado = vehiculoRegistrado;
 
-        // conocimientoVehiculo.agregarAsociacion(vehiculoRegistrado.getPatente(),
-        // cuentaSeleccionada.getNumeroDeCuenta());
-
-        vehiculos = new ArrayList<>();
-        for (Vehiculo v : cuentaSeleccionada.getVehiculos()) {
-            List<String> vehiculo = new ArrayList<>();
-            vehiculo.add(v.getPatente());
-            vehiculo.add(v.getMarca());
-            vehiculo.add(v.getModelo());
-            vehiculo.add(v.getColor());
-            vehiculos.add(vehiculo);
-        }
+        vehiculos = obtenerStringVehiculos();
         vistaCuenta.setPanelDatosVehiculo(vehiculos);
 
         inicializarVistaComprobante();
@@ -163,15 +137,7 @@ public class ControladorPrincipal
     public void onVehiculoEliminado() {
         inicializarVistaMensaje(Mensajes.VEHICULO_ELIMINADO, "Éxito");
 
-        vehiculos = new ArrayList<>();
-        for (Vehiculo v : cuentaSeleccionada.getVehiculos()) {
-            List<String> vehiculo = new ArrayList<>();
-            vehiculo.add(v.getPatente());
-            vehiculo.add(v.getMarca());
-            vehiculo.add(v.getModelo());
-            vehiculo.add(v.getColor());
-            vehiculos.add(vehiculo);
-        }
+        vehiculos = obtenerStringVehiculos();
         vistaCuenta.setPanelDatosVehiculo(vehiculos);
     }
 
@@ -179,5 +145,18 @@ public class ControladorPrincipal
     public void onComprobanteGuardado() {
         vistaPrincipal.dispose();
         ;
+    }
+
+    private List<List<String>> obtenerStringVehiculos() {
+        List<List<String>> listVehiculos = new ArrayList<>();
+        for (Vehiculo v : cuentaSeleccionada.getVehiculos()) {
+            List<String> vehiculo = new ArrayList<>();
+            vehiculo.add(v.getPatente());
+            vehiculo.add(v.getMarca());
+            vehiculo.add(v.getModelo());
+            vehiculo.add(v.getColor());
+            listVehiculos.add(vehiculo);
+        }
+        return listVehiculos;
     }
 }

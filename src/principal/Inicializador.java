@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import modelos.*;
 import utilidades.ConocimientoVehiculo;
 
-import java.util.ArrayList;
-
 public class Inicializador {
 
     public static ArrayList<TipoDeUsuario> crearTiposDeUsuario() {

@@ -1,14 +1,14 @@
 ===== COMPROBANTE DE REGISTRO DE VEHÍCULO =====
 
 === DATOS DE LA CUENTA ===
-Nombre: Lucía
-Cédula:44332211
-Teléfono:4444444444
+Nombre: Carlos
+Cédula:11223344
+Teléfono:3333333333
 
 === DATOS DEL VEHÍCULO ===
 Marca: A
 Modelo: A
-Patente: MNO345
+Patente: DEF456
 Fecha de registro:20/11/2025
-Hora de registro:22:42:48
+Hora de registro:22:37:59
 =============================================

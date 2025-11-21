@@ -59,9 +59,9 @@ public class ControladorVehiculo implements ActionListener {
                 if (vehiculoListener != null) {
                     Vehiculo vehiculoRegistrado = new Vehiculo(marca, modelo, patente, color);
                     cuentaSeleccionada.asociarVehiculo(vehiculoRegistrado);
+                    conocimientoVehiculo.agregarAsociacion(patente, cuentaSeleccionada.getNumeroDeCuenta());
                     if (vehiculoListener != null) {
                         vehiculoListener.onVehiculoRegistrado(vehiculoRegistrado);
-                        conocimientoVehiculo.agregarAsociacion(patente, cuentaSeleccionada.getNumeroDeCuenta());
                     }
                 }
             }
@@ -77,11 +77,9 @@ public class ControladorVehiculo implements ActionListener {
 
         if (!(patente.isEmpty())) {
             if (conocimientoVehiculo.vehiculoAsociadoACuenta(patente, cuentaSeleccionada.getNumeroDeCuenta())) {
-
                 Vehiculo vehiculoIngresado = buscarVehiculo(patente);
                 cuentaSeleccionada.desasociarVehiculo(vehiculoIngresado);
                 conocimientoVehiculo.eliminarAsociacion(patente, cuentaSeleccionada.getNumeroDeCuenta());
-
                 if (vehiculoListener != null) {
                     vehiculoListener.onVehiculoEliminado();
                 }
@@ -94,15 +92,8 @@ public class ControladorVehiculo implements ActionListener {
     }
 
     private Vehiculo buscarVehiculo(String patente) {
-        Vehiculo vehiculoEncontrado = null;
-
-        for (int i = 0; i < vehiculos.size(); i++) {
-            Vehiculo vehiculo = vehiculos.get(i);
-            if (patente.equals(String.valueOf(vehiculo.getPatente()))) {
-                vehiculoEncontrado = vehiculo;
-            }
-        }
+        Vehiculo vehiculoEncontrado = vehiculos.stream().filter(n -> patente.equals(n.getPatente())).findFirst()
+                .orElse(null);
         return vehiculoEncontrado;
-
     }
 }

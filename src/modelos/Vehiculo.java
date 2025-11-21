@@ -8,8 +8,8 @@ public class Vehiculo {
     private String modelo;
     private String patente;
     private String color;
-    private final String fechaRegistro;
-    private final String horaRegistro;
+    private String fechaRegistro;
+    private String horaRegistro;
 
     public Vehiculo(String marca, String modelo, String patente, String color) {
         this.marca = marca;
