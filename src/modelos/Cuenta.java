@@ -73,7 +73,7 @@ public class Cuenta {
         mensajeComprobante.append("===== COMPROBANTE DE REGISTRO DE VEHÍCULO =====\n\n");
         mensajeComprobante.append("=== DATOS DE LA CUENTA ===\n");
         mensajeComprobante.append("Nombre: ").append(getUsuario().getNombre()).append("\n");
-        mensajeComprobante.append("Cédula:").append(getUsuario().getDocumento()).append("\n");
+        mensajeComprobante.append("Documento:").append(getUsuario().getDocumento()).append("\n");
         mensajeComprobante.append("Teléfono:").append(getUsuario().getTelefono()).append("\n\n");
         mensajeComprobante.append("=== DATOS DEL VEHÍCULO ===\n");
         mensajeComprobante.append("Marca: ").append(vehiculo.getMarca()).append("\n");
