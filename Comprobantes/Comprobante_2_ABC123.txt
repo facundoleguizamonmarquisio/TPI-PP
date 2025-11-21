@@ -10,5 +10,5 @@ Marca: A
 Modelo: A
 Patente: ABC123
 Fecha de registro:20/11/2025
-Hora de registro:09:08:00
+Hora de registro:23:15:24
 =============================================

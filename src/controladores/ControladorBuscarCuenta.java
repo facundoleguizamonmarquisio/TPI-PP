@@ -3,12 +3,10 @@ package controladores;
 import modelos.*;
 import vistas.*;
 
+import java.util.function.Predicate;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.Socket;
-import java.nio.channels.Pipe.SourceChannel;
 import java.util.ArrayList;
-import java.util.List;
 
 public class ControladorBuscarCuenta implements ActionListener {
     private ArrayList<Cuenta> cuentas;
@@ -38,9 +36,9 @@ public class ControladorBuscarCuenta implements ActionListener {
     }
 
     private void manejarBusqueda() {
-        String documentoUsuario = ((String) vistaCuenta.getCbUsuarios().getSelectedItem());
+        String legajoUsuario = ((String) vistaCuenta.getCbUsuarios().getSelectedItem());
 
-        Cuenta cuentaSeleccionada = buscarCuenta(documentoUsuario);
+        Cuenta cuentaSeleccionada = buscarCuenta(legajoUsuario);
 
         if (cuentaSeleccionada != null) {
             if (cuentaListener != null) {
@@ -56,14 +54,10 @@ public class ControladorBuscarCuenta implements ActionListener {
     }
 
     private Cuenta buscarCuenta(String legajoUsuario) {
-        Cuenta cuentaEncontrada = null;
-
-        for (int i = 0; i < cuentas.size(); i++) {
-            UsuarioUTN usuarioCuenta = cuentas.get(i).getUsuario();
-            if (legajoUsuario.equals(String.valueOf(usuarioCuenta.getLegajo()))) {
-                cuentaEncontrada = cuentas.get(i);
-            }
-        }
+        Predicate<Cuenta> legajoCoindice = n -> legajoUsuario.equals(String.valueOf(n.getUsuario().getLegajo()));
+        Cuenta cuentaEncontrada = cuentas.stream()
+                .filter(legajoCoindice)
+                .findFirst().orElse(null);
         return cuentaEncontrada;
     }
 }

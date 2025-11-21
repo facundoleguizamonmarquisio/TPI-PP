@@ -15,7 +15,7 @@ public class Main {
         ArrayList<Cuenta> cuentas = Inicializador.crearCuentas(tiposCuenta, usuarios, vehiculos);
         ConocimientoVehiculo conocimientoVehiculo = Inicializador.crearConocimientoVehiculo(cuentas);
 
-        ControladorPrincipal ctrlVentanaPrincipal = new ControladorPrincipal(usuarios, cuentas, vehiculos,
+        ControladorPrincipal ctrlVentanaPrincipal = new ControladorPrincipal(usuarios, cuentas,
                 conocimientoVehiculo);
         ctrlVentanaPrincipal.inicializarAplicacion();
     }

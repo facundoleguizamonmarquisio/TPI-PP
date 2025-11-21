@@ -1,14 +1,11 @@
 package controladores;
 
 import modelos.*;
-import utilidades.Mensajes;
 import vistas.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileWriter;
-import java.security.Guard;
-import java.util.ArrayList;
 
 public class ControladorComprobante implements ActionListener {
     private VentanaComprobante vistaComprobante;
