@@ -6,5 +6,4 @@ public interface BuscarCuentaListener {
     void onCuentaEncontrada(Cuenta cuenta);
 
     void onCuentaNoEncontrada();
-        
 }

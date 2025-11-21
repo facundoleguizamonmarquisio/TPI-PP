@@ -5,19 +5,22 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import modelos.*;
-import utilidades.Mensajes;
 import vistas.*;
+import utilidades.ConocimientoVehiculo;
 
 public class ControladorVehiculo implements ActionListener {
     private Cuenta cuentaSeleccionada;
     private ArrayList<Vehiculo> vehiculos;
     private GestionarVehiculoListener vehiculoListener;
     private PanelVehiculo vistaVehiculo;
+    private ConocimientoVehiculo conocimientoVehiculo;
 
-    public ControladorVehiculo(PanelVehiculo vistaVehiculo, Cuenta cuentaSeleccionada) {
+    public ControladorVehiculo(PanelVehiculo vistaVehiculo, Cuenta cuentaSeleccionada,
+            ConocimientoVehiculo conocimientoVehiculo) {
         this.vistaVehiculo = vistaVehiculo;
         this.cuentaSeleccionada = cuentaSeleccionada;
         this.vehiculos = cuentaSeleccionada.getVehiculos();
+        this.conocimientoVehiculo = conocimientoVehiculo;
 
         this.vistaVehiculo.getBtnRegistrar().addActionListener(this);
         this.vistaVehiculo.getBtnEliminar().addActionListener(this);
@@ -47,17 +50,19 @@ public class ControladorVehiculo implements ActionListener {
         String color = vistaVehiculo.getTfColor().getText();
 
         if (!(patente.isEmpty() || marca.isEmpty() || modelo.isEmpty() || color.isEmpty())) {
-            Vehiculo vehiculoIngresado = buscarVehiculo(patente);
-
-            if (vehiculoIngresado != null) { // Vehículo ya asociado
+            // MILIII
+            if (conocimientoVehiculo.vehiculoAsociadoACuenta(patente, cuentaSeleccionada.getNumeroDeCuenta())) {
                 if (vehiculoListener != null) {
                     vehiculoListener.onVehiculoAsociado();
                 }
-            } else { // Vehículo aún inexistente
-                Vehiculo vehiculoRegistrado = new Vehiculo(marca, modelo, patente, color);
-                cuentaSeleccionada.asociarVehiculo(vehiculoRegistrado);
+            } else {
                 if (vehiculoListener != null) {
-                    vehiculoListener.onVehiculoRegistrado(vehiculoRegistrado);
+                    Vehiculo vehiculoRegistrado = new Vehiculo(marca, modelo, patente, color);
+                    cuentaSeleccionada.asociarVehiculo(vehiculoRegistrado);
+                    if (vehiculoListener != null) {
+                        vehiculoListener.onVehiculoRegistrado(vehiculoRegistrado);
+                        conocimientoVehiculo.agregarAsociacion(patente, cuentaSeleccionada.getNumeroDeCuenta());
+                    }
                 }
             }
         } else {
@@ -65,17 +70,18 @@ public class ControladorVehiculo implements ActionListener {
                 vehiculoListener.onVehiculoIncompleto();
             }
         }
-
     }
 
     private void manejarEliminacion() {
         String patente = vistaVehiculo.getTfPatente().getText();
 
         if (!(patente.isEmpty())) {
-            Vehiculo vehiculoIngresado = buscarVehiculo(patente);
+            if (conocimientoVehiculo.vehiculoAsociadoACuenta(patente, cuentaSeleccionada.getNumeroDeCuenta())) {
 
-            if (vehiculoIngresado != null) {
+                Vehiculo vehiculoIngresado = buscarVehiculo(patente);
                 cuentaSeleccionada.desasociarVehiculo(vehiculoIngresado);
+                conocimientoVehiculo.eliminarAsociacion(patente, cuentaSeleccionada.getNumeroDeCuenta());
+
                 if (vehiculoListener != null) {
                     vehiculoListener.onVehiculoEliminado();
                 }
