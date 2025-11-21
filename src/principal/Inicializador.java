@@ -77,15 +77,14 @@ public class Inicializador {
         return cuentas;
     }
 
-    // public static ConocimientoVehiculo
-    // crearConocimientoVehiculo(ArrayList<Cuenta> cuentas) {
-    // ConocimientoVehiculo conocimientoVehiculo = new ConocimientoVehiculo();
-    // for (Cuenta cuenta : cuentas) {
-    // for (Vehiculo vehiculo : cuenta.getVehiculos()) {
-    // conocimientoVehiculo.agregarAsociacion(vehiculo.getPatente(),
-    // cuenta.getNumeroDeCuenta());
-    // }
-    // }
-    // return conocimientoVehiculo;
-    // }
+    public static ConocimientoVehiculo crearConocimientoVehiculo(ArrayList<Cuenta> cuentas) {
+        ConocimientoVehiculo conocimientoVehiculo = new ConocimientoVehiculo();
+        for (Cuenta cuenta : cuentas) {
+            for (Vehiculo vehiculo : cuenta.getVehiculos()) {
+                conocimientoVehiculo.agregarAsociacion(vehiculo.getPatente(),
+                        cuenta.getNumeroDeCuenta());
+            }
+        }
+        return conocimientoVehiculo;
+    }
 }
