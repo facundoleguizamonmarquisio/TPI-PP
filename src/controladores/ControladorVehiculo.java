@@ -3,6 +3,7 @@ package controladores;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 import modelos.*;
 import vistas.*;
@@ -92,7 +93,8 @@ public class ControladorVehiculo implements ActionListener {
     }
 
     private Vehiculo buscarVehiculo(String patente) {
-        Vehiculo vehiculoEncontrado = vehiculos.stream().filter(n -> patente.equals(n.getPatente())).findFirst()
+        Predicate<Vehiculo> patenteCoindice = n -> patente.equals(String.valueOf(n.getPatente()));
+        Vehiculo vehiculoEncontrado = vehiculos.stream().filter(patenteCoindice).findFirst()
                 .orElse(null);
         return vehiculoEncontrado;
     }

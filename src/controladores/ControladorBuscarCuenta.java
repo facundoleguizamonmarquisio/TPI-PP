@@ -3,6 +3,7 @@ package controladores;
 import modelos.*;
 import vistas.*;
 
+import java.util.function.Predicate;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -53,8 +54,9 @@ public class ControladorBuscarCuenta implements ActionListener {
     }
 
     private Cuenta buscarCuenta(String legajoUsuario) {
+        Predicate<Cuenta> legajoCoindice = n -> legajoUsuario.equals(String.valueOf(n.getUsuario().getLegajo()));
         Cuenta cuentaEncontrada = cuentas.stream()
-                .filter(n -> legajoUsuario.equals(String.valueOf(n.getUsuario().getLegajo())))
+                .filter(legajoCoindice)
                 .findFirst().orElse(null);
         return cuentaEncontrada;
     }
