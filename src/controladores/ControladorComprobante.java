@@ -13,6 +13,7 @@ public class ControladorComprobante implements ActionListener {
     private String patenteVehiculo;
     private int nroCuenta;
     private GuardarComprobanteListener comprobanteListener;
+    private CrearArchivoListener archivoListener;
 
     public ControladorComprobante(VentanaComprobante vistaComprobante, StringBuilder contenido, String patenteVehiculo,
             int nroCuenta) {
@@ -30,6 +31,11 @@ public class ControladorComprobante implements ActionListener {
     // Setter
     public void setGuardarComprobanteListener(GuardarComprobanteListener comprobanteListener) {
         this.comprobanteListener = comprobanteListener;
+    }
+
+    // Setter
+    public void setCrearArchivoListener(CrearArchivoListener ArchivoListener) {
+        this.archivoListener = ArchivoListener;
     }
 
     // Métodos
@@ -51,7 +57,9 @@ public class ControladorComprobante implements ActionListener {
             escritor.write(contenido.toString()); // Escribe el contenido
             escritor.close(); // Cierra el archivo
         } catch (Exception e) {
-            System.out.println("Error");
+            if (archivoListener != null) {
+                archivoListener.onArchivoNoCreado();
+            }
         }
     }
 

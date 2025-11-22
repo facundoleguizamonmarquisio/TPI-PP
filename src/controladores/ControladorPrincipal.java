@@ -8,7 +8,7 @@ import utilidades.*;
 import vistas.*;
 
 public class ControladorPrincipal
-        implements BuscarCuentaListener, GestionarVehiculoListener, GuardarComprobanteListener {
+        implements BuscarCuentaListener, GestionarVehiculoListener, GuardarComprobanteListener, CrearArchivoListener {
     private ArrayList<UsuarioUTN> usuarios;
     private ArrayList<Cuenta> cuentas;
     private List<List<String>> vehiculos;
@@ -90,7 +90,6 @@ public class ControladorPrincipal
         ctrlComprobante.setGuardarComprobanteListener(this);
 
         vistaComprobante.setVisible(true);
-
     }
 
     @Override
@@ -145,6 +144,11 @@ public class ControladorPrincipal
     public void onComprobanteGuardado() {
         vistaPrincipal.dispose();
         ;
+    }
+
+    @Override
+    public void onArchivoNoCreado() {
+        inicializarVistaMensaje(Mensajes.ARCHIVO_NO_CREADO, "Error");
     }
 
     private List<List<String>> obtenerStringVehiculos() {

@@ -11,4 +11,5 @@ public class Mensajes {
 
     public static final String VEHICULO_INCOMPLETO = "DATOS FALTANTES: Registro denegado.";
 
+    public static final String ARCHIVO_NO_CREADO = "FALLA: Archivo no creado.";
 }

@@ -1,0 +1,14 @@
+===== COMPROBANTE DE REGISTRO DE VEHÍCULO =====
+
+=== DATOS DE LA CUENTA ===
+Nombre: Carlos
+Cédula:11223344
+Teléfono:3333333333
+
+=== DATOS DEL VEHÍCULO ===
+Marca: a
+Modelo: a
+Patente: a
+Fecha de registro:22/11/2025
+Hora de registro:14:49:50
+=============================================

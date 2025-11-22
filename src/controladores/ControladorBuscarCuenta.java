@@ -47,9 +47,7 @@ public class ControladorBuscarCuenta implements ActionListener {
         } else {
             if (cuentaListener != null) {
                 cuentaListener.onCuentaNoEncontrada();
-
             }
-
         }
     }
 
